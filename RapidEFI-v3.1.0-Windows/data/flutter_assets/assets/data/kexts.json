@@ -1,0 +1,3153 @@
+[
+    {
+        "name": "Lilu",
+        "url": "https://github.com/acidanthera/Lilu",
+        "BundlePath": [
+            "Lilu.kext"
+        ],
+        "Comment": "",
+        "Enabled": [
+            true
+        ],
+        "ExecutablePath": [
+            "Contents/MacOS/Lilu"
+        ],
+        "PlistPath": [
+            "Contents/Info.plist"
+        ],
+        "MinKernel": "",
+        "MaxKernel": "",
+        "Arch": "Any",
+        "os_support": "OS X 10.4或更新",
+        "essential": true,
+        "type": "base",
+        "function": "一个macOS内核扩展,主要为macOS提供扩展性和兼容性,这使得其他开发者可以编写用于扩展macOS的内核扩展",
+        "note": [
+            "例如 WhateverGreen、AppleALC、VirtualSMC等可以通过Lilu.kext实现对macOS的各种修改和增强功能,例如支持不同的显卡、声卡、虚拟机管理等",
+            "Lilu.kext通常是macOS内核扩展的第一个加载,因为其他插件可能需要依赖它的功能。这确保了插件在macOS启动时能够正确加载",
+            "必备基础驱动"
+        ]
+    },
+    {
+        "name": "VirtualSMC",
+        "url": "https://github.com/acidanthera/VirtualSMC",
+        "BundlePath": [
+            "VirtualSMC.kext"
+        ],
+        "Comment": "",
+        "Enabled": [
+            true
+        ],
+        "ExecutablePath": [
+            "Contents/MacOS/VirtualSMC"
+        ],
+        "PlistPath": [
+            "Contents/Info.plist"
+        ],
+        "MinKernel": "",
+        "MaxKernel": "",
+        "Arch": "Any",
+        "os_support": "OS X 10.4或更新",
+        "essential": true,
+        "type": "base",
+        "function": "一个macOS内核扩展,主要模拟苹果电脑上的SMC,使得在非苹果硬件上运行macOS操作系统",
+        "note": [
+            "在真正的苹果硬件上,SMC负责管理硬件传感器、风扇控制、电源管理、温度传感器、电池状态等系统管理功能。VirtualSMC在非苹果硬件上提供了这些功能,以确保macOS可以在这些系统上正常运行",
+            "通常与其他内核扩展一起使用,例如 Lilu.kext、WhateverGreen等,以在非苹果硬件上创建一个接近真实Mac的环境",
+            "缺少该驱动,不能正常运行macOS"
+        ]
+    },
+    {
+        "name": "AMDRyzenCPUPowerManagement",
+        "url": "",
+        "BundlePath": [
+            "AMDRyzenCPUPowerManagement.kext"
+        ],
+        "Comment": "",
+        "Enabled": [
+            true
+        ],
+        "ExecutablePath": [
+            "Contents/MacOS/AMDRyzenCPUPowerManagement"
+        ],
+        "PlistPath": [
+            "Contents/Info.plist"
+        ],
+        "MinKernel": "17.0.0",
+        "MaxKernel": "",
+        "Arch": "Any",
+        "os_support": "macOS 10.13及以上系统",
+        "essential": false,
+        "type": "",
+        "function": "一个独立的音频驱动(俗称万能声卡驱动),用于在非苹果硬件上运行macOS操作系统时实现音频支持",
+        "note": [
+            "可以驱动绝大多数声卡.通常在AppleALC较难驱动声卡情况下,可以退而求次选择该驱动",
+            "相比AppleALC声卡驱动,该驱动音质相对较差,可能存在破音情况",
+            "macOS Catalina 10.15.7及以下放置Clover或OpenCore引导中来驱动。对于BigSur及以上系统可以Hacktintool将其(建议VoodooHDA.kext 2.9.9及以上版本)安装至当前系统来驱动声卡",
+            "与 AppleALC 不同,VoodooHDA 是一个独立的音频驱动程序，它不需要使用 DSDT 补丁或注入声卡 ID.注意与AppleALC驱动,只能二选一,应避免同时加载造成无法引导或其他问题"
+        ]
+    },
+    {
+        "name": "ACPIBatteryManager",
+        "url": "",
+        "BundlePath": [
+            "ACPIBatteryManager.kext"
+        ],
+        "Comment": "",
+        "Enabled": [
+            true
+        ],
+        "ExecutablePath": [
+            "Contents/MacOS/ACPIBatteryManager"
+        ],
+        "PlistPath": [
+            "Contents/Info.plist"
+        ],
+        "MinKernel": "",
+        "MaxKernel": "",
+        "Arch": "Any",
+        "os_support": "OS X 10.6或更新",
+        "essential": false,
+        "type": "battery",
+        "function": "电池驱动",
+        "note": [
+            "笔记本电池驱动"
+        ]
+    },
+    {
+        "name": "SMCBatteryManager",
+        "url": "",
+        "BundlePath": [
+            "SMCBatteryManager.kext"
+        ],
+        "Comment": "",
+        "Enabled": [
+            true
+        ],
+        "ExecutablePath": [
+            "Contents/MacOS/SMCBatteryManager"
+        ],
+        "PlistPath": [
+            "Contents/Info.plist"
+        ],
+        "MinKernel": "",
+        "MaxKernel": "",
+        "Arch": "Any",
+        "os_support": "OS X 10.6或更新",
+        "essential": false,
+        "type": "battery",
+        "function": "电池驱动",
+        "note": [
+            "笔记本电池驱动"
+        ]
+    },
+    {
+        "name": "SMCLightSensor",
+        "url": "",
+        "BundlePath": [
+            "SMCLightSensor.kext"
+        ],
+        "Comment": "",
+        "Enabled": [
+            true
+        ],
+        "ExecutablePath": [
+            "Contents/MacOS/SMCLightSensor"
+        ],
+        "PlistPath": [
+            "Contents/Info.plist"
+        ],
+        "MinKernel": "",
+        "MaxKernel": "",
+        "Arch": "Any",
+        "os_support": "OS X 10.6或更新",
+        "essential": false,
+        "type": "",
+        "function": "环境光传感器",
+        "note": []
+    },
+    {
+        "name": "AsusSMC",
+        "url": "",
+        "BundlePath": [
+            "AsusSMC.kext"
+        ],
+        "Comment": "",
+        "Enabled": [
+            true
+        ],
+        "ExecutablePath": [
+            "Contents/MacOS/AsusSMC"
+        ],
+        "PlistPath": [
+            "Contents/Info.plist"
+        ],
+        "MinKernel": "",
+        "MaxKernel": "",
+        "Arch": "Any",
+        "os_support": "OS X 10.6或更新",
+        "essential": false,
+        "type": "",
+        "function": "华硕笔记本风扇传感器专用",
+        "note": []
+    },
+    {
+        "name": "YogaSMC",
+        "url": "",
+        "BundlePath": [
+            "YogaSMC.kext"
+        ],
+        "Comment": "",
+        "Enabled": [
+            true
+        ],
+        "ExecutablePath": [
+            "Contents/MacOS/YogaSMC"
+        ],
+        "PlistPath": [
+            "Contents/Info.plist"
+        ],
+        "MinKernel": "",
+        "MaxKernel": "",
+        "Arch": "Any",
+        "os_support": "OS X 10.6或更新",
+        "essential": false,
+        "type": "",
+        "function": "联想Yoga风扇传感器专用",
+        "note": []
+    },
+    {
+        "name": "SMCDellSensors",
+        "url": "",
+        "BundlePath": [
+            "SMCDellSensors.kext"
+        ],
+        "Comment": "",
+        "Enabled": [
+            true
+        ],
+        "ExecutablePath": [
+            "Contents/MacOS/SMCDellSensors"
+        ],
+        "PlistPath": [
+            "Contents/Info.plist"
+        ],
+        "MinKernel": "",
+        "MaxKernel": "",
+        "Arch": "Any",
+        "os_support": "OS X 10.6或更新",
+        "essential": false,
+        "type": "",
+        "function": "戴尔风扇传感器专用",
+        "note": []
+    },
+    {
+        "name": "SMCAMDProcessor",
+        "url": "",
+        "BundlePath": [
+            "SMCAMDProcessor.kext"
+        ],
+        "Comment": "",
+        "Enabled": [
+            true
+        ],
+        "ExecutablePath": [
+            "Contents/MacOS/SMCAMDProcessor"
+        ],
+        "PlistPath": [
+            "Contents/Info.plist"
+        ],
+        "MinKernel": "",
+        "MaxKernel": "",
+        "Arch": "Any",
+        "os_support": "OS X 10.6或更新",
+        "essential": false,
+        "type": "",
+        "function": "一个独立的音频驱动(俗称万能声卡驱动),用于在非苹果硬件上运行macOS操作系统时实现音频支持",
+        "note": [
+            "可以驱动绝大多数声卡.通常在AppleALC较难驱动声卡情况下,可以退而求次选择该驱动",
+            "相比AppleALC声卡驱动,该驱动音质相对较差,可能存在破音情况",
+            "macOS Catalina 10.15.7及以下放置Clover或OpenCore引导中来驱动。对于BigSur及以上系统可以Hacktintool将其(建议VoodooHDA.kext 2.9.9及以上版本)安装至当前系统来驱动声卡",
+            "与 AppleALC 不同,VoodooHDA 是一个独立的音频驱动程序，它不需要使用 DSDT 补丁或注入声卡 ID.注意与AppleALC驱动,只能二选一,应避免同时加载造成无法引导或其他问题"
+        ]
+    },
+    {
+        "name": "SMCProcessor",
+        "url": "",
+        "BundlePath": [
+            "SMCProcessor.kext"
+        ],
+        "Comment": "",
+        "Enabled": [
+            true
+        ],
+        "ExecutablePath": [
+            "Contents/MacOS/SMCProcessor"
+        ],
+        "PlistPath": [
+            "Contents/Info.plist"
+        ],
+        "MinKernel": "",
+        "MaxKernel": "",
+        "Arch": "Any",
+        "os_support": "OS X 10.6或更新",
+        "essential": false,
+        "type": "",
+        "function": "一个独立的音频驱动(俗称万能声卡驱动),用于在非苹果硬件上运行macOS操作系统时实现音频支持",
+        "note": [
+            "可以驱动绝大多数声卡.通常在AppleALC较难驱动声卡情况下,可以退而求次选择该驱动",
+            "相比AppleALC声卡驱动,该驱动音质相对较差,可能存在破音情况",
+            "macOS Catalina 10.15.7及以下放置Clover或OpenCore引导中来驱动。对于BigSur及以上系统可以Hacktintool将其(建议VoodooHDA.kext 2.9.9及以上版本)安装至当前系统来驱动声卡",
+            "与 AppleALC 不同,VoodooHDA 是一个独立的音频驱动程序，它不需要使用 DSDT 补丁或注入声卡 ID.注意与AppleALC驱动,只能二选一,应避免同时加载造成无法引导或其他问题"
+        ]
+    },
+    {
+        "name": "SMCSuperIO",
+        "url": "",
+        "BundlePath": [
+            "SMCSuperIO.kext"
+        ],
+        "Comment": "",
+        "Enabled": [
+            true
+        ],
+        "ExecutablePath": [
+            "Contents/MacOS/SMCSuperIO"
+        ],
+        "PlistPath": [
+            "Contents/Info.plist"
+        ],
+        "MinKernel": "",
+        "MaxKernel": "",
+        "Arch": "Any",
+        "os_support": "OS X 10.6或更新",
+        "essential": false,
+        "type": "",
+        "function": "",
+        "note": []
+    },
+    {
+        "name": "WhateverGreen",
+        "url": "https://github.com/acidanthera/WhateverGreen",
+        "BundlePath": [
+            "WhateverGreen.kext"
+        ],
+        "Comment": "",
+        "Enabled": [
+            true
+        ],
+        "ExecutablePath": [
+            "Contents/MacOS/WhateverGreen"
+        ],
+        "PlistPath": [
+            "Contents/Info.plist"
+        ],
+        "MinKernel": "",
+        "MaxKernel": "",
+        "Arch": "Any",
+        "os_support": "OS X 10.4或更新",
+        "essential": true,
+        "type": "video",
+        "function": "一个macOS内核扩展,主要提供GPU图形驱动支持,以确保macOS能够在非苹果硬件上正常运行",
+        "note": [
+            "支持多种图形卡，包括 NVIDIA、AMD 和 Intel 图形卡。该扩展可以修复和配置正确的Framebuffer,以使显示器和分辨率工作正常",
+            "提供了对 HDMI 和 DisplayPort(DP)连接的支持,以确保音频和视频输出正常工作",
+            "必备基础驱动"
+        ]
+    },
+    {
+        "name": "NootRX",
+        "url": "",
+        "BundlePath": [
+            "NootRX.kext"
+        ],
+        "Comment": "",
+        "Enabled": [
+            false
+        ],
+        "ExecutablePath": [
+            "Contents/MacOS/NootRX"
+        ],
+        "PlistPath": [
+            "Contents/Info.plist"
+        ],
+        "MinKernel": "20.0.0",
+        "MaxKernel": "",
+        "Arch": "Any",
+        "os_support": "macOS BigSur 11及以上系统",
+        "essential": true,
+        "type": "video",
+        "function": "",
+        "note": [
+            "AMD RX6700等独显驱动"
+        ]
+    },
+    {
+        "name": "BFixup",
+        "url": "",
+        "BundlePath": [
+            "BFixup.kext"
+        ],
+        "Comment": "",
+        "Enabled": [
+            false
+        ],
+        "ExecutablePath": [
+            "Contents/MacOS/BFixup"
+        ],
+        "PlistPath": [
+            "Contents/Info.plist"
+        ],
+        "MinKernel": "20.0.0",
+        "MaxKernel": "",
+        "Arch": "Any",
+        "os_support": "macOS BigSur 11及以上系统",
+        "essential": true,
+        "type": "video",
+        "function": "",
+        "note": [
+            "AMD Ryzen系列核显驱动"
+        ]
+    },
+    {
+        "name": "NootedRed",
+        "url": "",
+        "BundlePath": [
+            "NootedRed.kext"
+        ],
+        "Comment": "",
+        "Enabled": [
+            false
+        ],
+        "ExecutablePath": [
+            "Contents/MacOS/NootedRed"
+        ],
+        "PlistPath": [
+            "Contents/Info.plist"
+        ],
+        "MinKernel": "20.0.0",
+        "MaxKernel": "",
+        "Arch": "Any",
+        "os_support": "OS X 10.13或更新",
+        "essential": true,
+        "type": "video",
+        "function": "",
+        "note": [
+            "AMD Ryzen系列核显驱动"
+        ]
+    },
+    {
+        "name": "AMDRadeonNavi2xExt",
+        "url": "",
+        "BundlePath": [
+            "AMDRadeonNavi2xExt.kext"
+        ],
+        "Comment": "",
+        "Enabled": [
+            true
+        ],
+        "ExecutablePath": [
+            "Contents/MacOS/AMDRadeonNavi2xExt"
+        ],
+        "PlistPath": [
+            "Contents/Info.plist"
+        ],
+        "MinKernel": "21.0.0",
+        "MaxKernel": "",
+        "Arch": "Any",
+        "os_support": "macOS Monterey 12或更新",
+        "essential": true,
+        "type": "video",
+        "function": "",
+        "note": [
+            "AMD RX6650,RX6950系列独显仿冒驱动"
+        ]
+    },
+    {
+        "name": "RestrictEvents",
+        "url": "https://github.com/acidanthera/RestrictEvents",
+        "BundlePath": [
+            "RestrictEvents.kext"
+        ],
+        "Comment": "",
+        "Enabled": [
+            true
+        ],
+        "ExecutablePath": [
+            "Contents/MacOS/RestrictEvents"
+        ],
+        "PlistPath": [
+            "Contents/Info.plist"
+        ],
+        "MinKernel": "",
+        "MaxKernel": "",
+        "Arch": "Any",
+        "os_support": "OS X 10.9或更新",
+        "essential": false,
+        "type": "RestrictEvents",
+        "function": "一个内核扩展驱动",
+        "note": [
+            "Lilu内核扩展,用于阻止不需要的进程,导致不同硬件上的兼容性问题,并解锁对仅限于其他硬件的某些功能的支持",
+            "由于苹果官方并未推出过intel 11代及更新平台,以及AMD平台的白苹果设备,因此对于这些平台,建议使用该驱动",
+            "注意:对于8个核心或更高的CPU,Apple CPU标识符必须为0x0F01,对于1、2、4或6个核心,必须为0x0601。这是OpenCore中非原生支持的CPU的默认值"
+        ]
+    },
+    {
+        "name": "AAAMouSSE",
+        "url": "https://forums.macrumors.com/threads/mp3-1-others-sse-4-2-emulation-to-enable-amd-metal-driver.2206682/",
+        "BundlePath": [
+            "AAAMouSSE.kext"
+        ],
+        "Comment": "",
+        "Enabled": [
+            true
+        ],
+        "ExecutablePath": [
+            "Contents/MacOS/AAAMouSSE"
+        ],
+        "PlistPath": [
+            "Contents/Info.plist"
+        ],
+        "MinKernel": "18.0.0",
+        "MaxKernel": "",
+        "Arch": "Any",
+        "os_support": "OS X 10.12或更新",
+        "essential": false,
+        "type": "sse amd vido",
+        "function": "一个部分支持SSE4.2指令集的模拟器，用于解决新型AMD显卡驱动程序在旧型Mac系统中不兼容的问题",
+        "note": [
+            "较旧的CPU（如Penryn、Harpertown以及更早的CPU）不支持SSE4.2指令,允许这些旧型CPU使用较新的AMD驱动程序",
+            "这些较旧的Mac Pro型号（如Mac Pro 3,1）使用这些较旧的CPU，因此新型AMD驱动程序在这些系统中无法正常工作",
+            "注意不支持SSE4.1指令集的CPU不建议使用",
+            "通常在775,X58及更老的平台使用,可以解决系统登录界面白屏或黑屏等不能正常显示的问题"
+        ]
+    },
+    {
+        "name": "AppleALC",
+        "url": "https://github.com/acidanthera/AppleALC",
+        "BundlePath": [
+            "AppleALC.kext"
+        ],
+        "Comment": "",
+        "Enabled": [
+            true
+        ],
+        "ExecutablePath": [
+            "Contents/MacOS/AppleALC"
+        ],
+        "PlistPath": [
+            "Contents/Info.plist"
+        ],
+        "MinKernel": "",
+        "MaxKernel": "",
+        "Arch": "Any",
+        "os_support": "OS X 10.4或更新",
+        "essential": false,
+        "type": "audio",
+        "function": "一个macOS内核扩展,主要提供音频驱动支持,以在非苹果硬件上运行macOS操作系统时使音频设备正常工作",
+        "note": [
+            "AppleALC支持多种音频编解码器,包括 Realtek、VIA、Conexant和其他常见的声卡硬件。它能够识别和配置这些硬件,以实现声音的输入和输出",
+            "用户可以配置 AppleALC 来注入正确的声卡ID,以匹配其硬件配置。这是关键的一步,以确保 macOS 能够正确地加载和管理声卡驱动程序",
+            "相比VoodooHDA万能声卡驱动,该驱动音质更好更稳定.注意与VoodooHDA驱动,只能二选一,应避免同时加载造成无法引导或其他问题"
+        ]
+    },
+    {
+        "name": "VoodooHDA",
+        "url": "https://github.com/CloverHackyColor/VoodooHDA",
+        "BundlePath": [
+            "VoodooHDA.kext"
+        ],
+        "Comment": "",
+        "Enabled": [
+            true
+        ],
+        "ExecutablePath": [
+            "Contents/MacOS/VoodooHDA"
+        ],
+        "PlistPath": [
+            "Contents/Info.plist"
+        ],
+        "MinKernel": "",
+        "MaxKernel": "20.3.0",
+        "Arch": "Any",
+        "os_support": "OS X 10.6或更新",
+        "essential": false,
+        "type": "audio",
+        "function": "一个独立的音频驱动(俗称万能声卡驱动),用于在非苹果硬件上运行macOS操作系统时实现音频支持",
+        "note": [
+            "可以驱动绝大多数声卡.通常在AppleALC较难驱动声卡情况下,可以退而求次选择该驱动",
+            "相比AppleALC声卡驱动,该驱动音质相对较差,可能存在破音情况",
+            "macOS Catalina 10.15.7及以下放置Clover或OpenCore引导中来驱动。对于BigSur及以上系统可以Hacktintool将其(建议VoodooHDA.kext 2.9.9及以上版本)安装至当前系统来驱动声卡",
+            "与 AppleALC 不同,VoodooHDA 是一个独立的音频驱动程序，它不需要使用 DSDT 补丁或注入声卡 ID.注意与AppleALC驱动,只能二选一,应避免同时加载造成无法引导或其他问题"
+        ]
+    },
+    {
+        "name": "ECEnabler",
+        "url": "https://github.com/1Revenger1/ECEnabler",
+        "BundlePath": [
+            "ECEnabler.kext"
+        ],
+        "Comment": "",
+        "Enabled": [
+            true
+        ],
+        "ExecutablePath": [
+            "Contents/MacOS/ECEnabler"
+        ],
+        "PlistPath": [
+            "Contents/Info.plist"
+        ],
+        "MinKernel": "",
+        "MaxKernel": "",
+        "Arch": "Any",
+        "os_support": "OS X 10.6或更新",
+        "essential": false,
+        "type": "ECEnabler",
+        "function": "电池辅助驱动,支持超过8 Bit字段",
+        "note": [
+            "允许读取超过1字节长(8 Bit)的嵌入式控制器字段,大大减少了工作电池状态所需的ACPI修改量"
+        ]
+    },
+    {
+        "name": "NVMeFix",
+        "url": "https://github.com/acidanthera/NVMeFix",
+        "BundlePath": [
+            "NVMeFix.kext"
+        ],
+        "Comment": "",
+        "Enabled": [
+            true
+        ],
+        "ExecutablePath": [
+            "Contents/MacOS/NVMeFix"
+        ],
+        "PlistPath": [
+            "Contents/Info.plist"
+        ],
+        "MinKernel": "18.0.0",
+        "MaxKernel": "",
+        "Arch": "Any",
+        "os_support": "OS X 10.9或更新",
+        "essential": false,
+        "type": "nvme",
+        "function": "修复MVME磁盘驱动",
+        "note": [
+            "NVME固态硬盘优化和修复驱动",
+            "NVME固态作为mac系统盘时,建议加上该驱动",
+            "注意此驱动并非必须,如果使用该驱动出现内核崩溃,请去掉该驱动"
+        ]
+    },
+    {
+        "name": "AppleMCEReporterDisabler",
+        "url": "",
+        "BundlePath": [
+            "AppleMCEReporterDisabler.kext"
+        ],
+        "Comment": "",
+        "Enabled": [
+            true
+        ],
+        "ExecutablePath": [
+            ""
+        ],
+        "PlistPath": [
+            "Contents/Info.plist"
+        ],
+        "MinKernel": "",
+        "MaxKernel": "",
+        "Arch": "Any",
+        "os_support": "OS X 10.9或更新",
+        "essential": false,
+        "type": "AppleMCEReporterDisabler",
+        "function": "一个内核扩展驱动",
+        "note": [
+            "Lilu内核扩展,用于阻止不需要的进程,导致不同硬件上的兼容性问题,并解锁对仅限于其他硬件的某些功能的支持",
+            "由于苹果官方并未推出过intel 11代及更新平台,以及AMD平台的白苹果设备,因此对于这些平台,建议使用该驱动",
+            "注意:对于8个核心或更高的CPU,Apple CPU标识符必须为0x0F01,对于1、2、4或6个核心,必须为0x0601。这是OpenCore中非原生支持的CPU的默认值"
+        ]
+    },
+    {
+        "name": "AMFIPass",
+        "url": "",
+        "BundlePath": [
+            "AMFIPass.kext"
+        ],
+        "Comment": "",
+        "Enabled": [
+            true
+        ],
+        "ExecutablePath": [
+            "Contents/MacOS/AMFIPass"
+        ],
+        "PlistPath": [
+            "Contents/Info.plist"
+        ],
+        "MinKernel": "18.0.0",
+        "MaxKernel": "",
+        "Arch": "Any",
+        "os_support": "macOS BigSur 11及以上系统",
+        "essential": false,
+        "type": "amfi",
+        "function": "一个绕过“禁用AMFI”的驱动程序,可以不禁用AMFI,来打显卡,WIFI等驱动补丁",
+        "note": [
+            "通常在显卡不支持macOS BigSur 11及以上操作系统,需要禁用AMFI时,可以使用该驱动绕过”禁用AMFI“",
+            "通常需要禁用AMFI,使用OCLP打显卡驱动,但是这样会导致部分不好的系统体验.使用该驱动可以不禁用AMFI,来打显卡驱动",
+            "如果出现系统崩溃重启等异常情况,需要在启动参数(boot-args): amfi=0x80来禁用AMFI"
+        ]
+    },
+    {
+        "name": "Innie",
+        "url": "",
+        "BundlePath": [
+            "Innie.kext"
+        ],
+        "Comment": "",
+        "Enabled": [
+            true
+        ],
+        "ExecutablePath": [
+            "Contents/MacOS/Innie"
+        ],
+        "PlistPath": [
+            "Contents/Info.plist"
+        ],
+        "MinKernel": "18.0.0",
+        "MaxKernel": "",
+        "Arch": "Any",
+        "os_support": "OS X 10.9或更新",
+        "essential": false,
+        "type": "nvme",
+        "function": "",
+        "note": []
+    },
+    {
+        "name": "FeatureUnlock",
+        "url": "",
+        "BundlePath": [
+            "FeatureUnlock.kext"
+        ],
+        "Comment": "",
+        "Enabled": [
+            true
+        ],
+        "ExecutablePath": [
+            "Contents/MacOS/FeatureUnlock"
+        ],
+        "PlistPath": [
+            "Contents/Info.plist"
+        ],
+        "MinKernel": "21.0.0",
+        "MaxKernel": "",
+        "Arch": "Any",
+        "os_support": "macOS Monterey 12或更新",
+        "essential": false,
+        "type": "",
+        "function": "",
+        "note": []
+    },
+    {
+        "name": "HibernationFixup",
+        "url": "",
+        "BundlePath": [
+            "HibernationFixup.kext"
+        ],
+        "Comment": "",
+        "Enabled": [
+            true
+        ],
+        "ExecutablePath": [
+            "Contents/MacOS/HibernationFixup"
+        ],
+        "PlistPath": [
+            "Contents/Info.plist"
+        ],
+        "MinKernel": "",
+        "MaxKernel": "",
+        "Arch": "Any",
+        "os_support": "OS X 10.13或更新",
+        "essential": false,
+        "type": "",
+        "function": "",
+        "note": []
+    },
+    {
+        "name": "HoRNDIS",
+        "url": "",
+        "BundlePath": [
+            "HoRNDIS.kext"
+        ],
+        "Comment": "",
+        "Enabled": [
+            true
+        ],
+        "ExecutablePath": [
+            "Contents/MacOS/HoRNDIS"
+        ],
+        "PlistPath": [
+            "Contents/Info.plist"
+        ],
+        "MinKernel": "",
+        "MaxKernel": "",
+        "Arch": "Any",
+        "os_support": "OS X 10.13或更新",
+        "essential": false,
+        "type": "",
+        "function": "",
+        "note": []
+    },
+    {
+        "name": "AppleIntelPIIXATA",
+        "url": "",
+        "BundlePath": [
+            "AppleIntelPIIXATA.kext"
+        ],
+        "Comment": "",
+        "Enabled": [
+            true
+        ],
+        "ExecutablePath": [
+            "Contents/MacOS/AppleIntelPIIXATA"
+        ],
+        "PlistPath": [
+            "Contents/Info.plist"
+        ],
+        "MinKernel": "",
+        "MaxKernel": "",
+        "Arch": "Any",
+        "os_support": "OS X 10.6或更新",
+        "essential": false,
+        "type": "sata ata",
+        "function": "一个用于传统老平台SATA免AHCI驱动程序",
+        "note": [
+            "免AHCI驱动,通常传统老平台中主板BIOS不支持AHCI(找不到AHCI选项),该驱动可以修补支持ATA模式",
+            "注意如果主板BIO不支持AHCI,并且想要安装macOS Monterey 12以上系统,主板SATA选项必须设置为Compatiable兼容模式",
+            "注意如果主板BIOS支持AHCI,该驱动通常不生效,请务必开启主板SATA>AHCI选项"
+        ]
+    },
+    {
+        "name": "telemetrap",
+        "url": "",
+        "BundlePath": [
+            "telemetrap.kext"
+        ],
+        "Comment": "",
+        "Enabled": [
+            true
+        ],
+        "ExecutablePath": [
+            "Contents/MacOS/telemetrap"
+        ],
+        "PlistPath": [
+            "Contents/Info.plist"
+        ],
+        "MinKernel": "18.0.0",
+        "MaxKernel": "",
+        "Arch": "Any",
+        "os_support": "macOS Mojave 10.14及以上系统",
+        "essential": false,
+        "type": "sse",
+        "function": "一个用于传统老平台CPU指令集SSE4补丁驱动,使得支持运行macOS Mojave 10.14及以上系统",
+        "note": [
+            "775等老平台CPU指令集必须支持SSE4,使用该驱动后,可以支持macOS Mojave 10.14.x ~ macOS Monterey 12.x系统",
+            "注意如果CPU本身指令集不支持SSE4,那么最高只能上macOS 10.11.6系统"
+        ]
+    },
+    {
+        "name": "CryptexFixup",
+        "url": "https://github.com/acidanthera/CryptexFixup",
+        "BundlePath": [
+            "CryptexFixup.kext"
+        ],
+        "Comment": "",
+        "Enabled": [
+            true
+        ],
+        "ExecutablePath": [
+            "Contents/MacOS/CryptexFixup"
+        ],
+        "PlistPath": [
+            "Contents/Info.plist"
+        ],
+        "MinKernel": "22.0.0",
+        "MaxKernel": "",
+        "Arch": "Any",
+        "os_support": "仅支持macOS Ventura 13及以上系统",
+        "essential": false,
+        "type": "avx2",
+        "function": "一个用于3代及以下老平台CPU指令集AVX2补丁驱动,使得支持运行macOS Ventura及以上系统",
+        "note": [
+            "3代及更老平台(包括X79,都缺少AVX2指令集),使用该驱动后,可以支持macOS Ventura 13.x及以上系统",
+            "注意3代及更老平台(包括X79,都缺少AVX2指令集),即使使用免驱显卡(例如RX580本身免驱支持macOS Sonoma 14+),通常都需要使用OCLP来打显卡驱动才能正常显示",
+            "建议使用CryptexFixup.kext最新版本,至少是CryptexFixup.kext 1.0.1之后的版本"
+        ]
+    },
+    {
+        "name": "NoAVXFSCompressionTypeZlib-AVXpel",
+        "url": "",
+        "BundlePath": [
+            "NoAVXFSCompressionTypeZlib-AVXpel.kext"
+        ],
+        "Comment": "",
+        "Enabled": [
+            true
+        ],
+        "ExecutablePath": [
+            "Contents/MacOS/NoAVXFSCompressionTypeZlib"
+        ],
+        "PlistPath": [
+            "Contents/Info.plist"
+        ],
+        "MinKernel": "22.0.0",
+        "MaxKernel": "",
+        "Arch": "Any",
+        "os_support": "仅支持macOS Ventura 13及以上系统",
+        "essential": false,
+        "type": "avx",
+        "function": "一个用于3代及以下老平台CPU指令集AVX2辅助补丁驱动,使得支持运行macOS Ventura及以上系统",
+        "note": [
+            "3代及更老平台(包括X79,都缺少AVX2指令集),建议加上该驱动,以免内核崩溃"
+        ]
+    },
+    {
+        "name": "CPUFriend",
+        "url": "",
+        "BundlePath": [
+            "CPUFriend.kext"
+        ],
+        "Comment": "",
+        "Enabled": [
+            true
+        ],
+        "ExecutablePath": [
+            "Contents/MacOS/CPUFriend"
+        ],
+        "PlistPath": [
+            "Contents/Info.plist"
+        ],
+        "MinKernel": "",
+        "MaxKernel": "",
+        "Arch": "Any",
+        "os_support": "OS X 10.13或更新",
+        "essential": false,
+        "type": "CPUFriend",
+        "function": "",
+        "note": []
+    },
+    {
+        "name": "CPUFriendDataProvider",
+        "url": "",
+        "BundlePath": [
+            "CPUFriendDataProvider.kext"
+        ],
+        "Comment": "",
+        "Enabled": [
+            true
+        ],
+        "ExecutablePath": [
+            ""
+        ],
+        "PlistPath": [
+            "Contents/Info.plist"
+        ],
+        "MinKernel": "",
+        "MaxKernel": "",
+        "Arch": "Any",
+        "os_support": "OS X 10.13或更新",
+        "essential": false,
+        "type": "CPUFriend",
+        "function": "",
+        "note": []
+    },
+    {
+        "name": "CpuTopologyRebuild",
+        "url": "https://github.com/b00t0x/CpuTopologyRebuild",
+        "BundlePath": [
+            "CpuTopologyRebuild.kext"
+        ],
+        "Comment": "",
+        "Enabled": [
+            true
+        ],
+        "ExecutablePath": [
+            "Contents/MacOS/CpuTopologyRebuild"
+        ],
+        "PlistPath": [
+            "Contents/Info.plist"
+        ],
+        "MinKernel": "18.0.0",
+        "MaxKernel": "",
+        "Arch": "Any",
+        "os_support": "OS X 10.6或更新",
+        "essential": false,
+        "type": "cpu tsc",
+        "function": "一个实验性的Lilu插件，优化了Alder Lake/Raptor Lake的异构核心配置",
+        "note": [
+            "OpenCore的ProvideCurrentCpuInfo怪癖启用了Alder Lake的P-Cores和E-Cores，但所有核心和线程都被识别为等效。这可能会导致潜在的单线程或现实世界的性能下降",
+            "此kext旨在通过重建这些核心和线程的拓扑来提高性能",
+            "在为VMware Fusion分配少量内核的情况下，Windows VM上的Geekbench 5得分有所提高",
+            "将此kext与ProvideCurrentCpuInfo怪癖一起使用"
+        ]
+    },
+    {
+        "name": "CpuTscSync",
+        "url": "https://github.com/acidanthera/CpuTscSync",
+        "BundlePath": [
+            "CpuTscSync.kext"
+        ],
+        "Comment": "",
+        "Enabled": [
+            true
+        ],
+        "ExecutablePath": [
+            "Contents/MacOS/CpuTscSync"
+        ],
+        "PlistPath": [
+            "Contents/Info.plist"
+        ],
+        "MinKernel": "",
+        "MaxKernel": "",
+        "Arch": "Any",
+        "os_support": "OS X 10.6或更新",
+        "essential": false,
+        "type": "cpu tsc",
+        "function": "用于处理 CPU 时间戳计数器（TSC）同步和 macOS 系统内核的问题",
+        "note": [
+            "CpuTscSync插件结合了VoodooTSCSync的功能，并在TSC（时间戳计数器）不同步时禁用了xcpm_urgency。这些功能的主要目的是解决一些在唤醒后引发内核崩溃的问题",
+            "不支持没有 MSR_IA32_TSC_ADJUST（03Bh）的CPU，特别是在 macOS 12 及更新版本上",
+            "如果你仍然遇到像”Non-monotonic time: invoke at 0xxxxxxxxxxx, runnable....“的内核崩溃，你可以尝试在启动参数（boot-args）中添加”TSC_sync_margin=0“",
+            "通常在X79,X99等高端服务器平台以及AMD Ryzen笔记本使用,可以避免可能导致的系统崩溃或重启以及睡眠问题"
+        ]
+    },
+    {
+        "name": "AmdTscSync",
+        "url": "",
+        "BundlePath": [
+            "AmdTscSync.kext"
+        ],
+        "Comment": "",
+        "Enabled": [
+            true
+        ],
+        "ExecutablePath": [
+            "Contents/MacOS/AmdTscSync"
+        ],
+        "PlistPath": [
+            "Contents/Info.plist"
+        ],
+        "MinKernel": "",
+        "MaxKernel": "",
+        "Arch": "Any",
+        "os_support": "OS X 10.13或更新",
+        "essential": false,
+        "type": "cpu tsc",
+        "function": "用于处理AMD CPU 时间戳计数器（TSC）同步和 macOS 系统内核的问题",
+        "note": [
+            ""
+        ]
+    },
+    {
+        "name": "TSCAdjustReset",
+        "url": "https://github.com/interferenc/TSCAdjustReset",
+        "BundlePath": [
+            "TSCAdjustReset.kext"
+        ],
+        "Comment": "",
+        "Enabled": [
+            true
+        ],
+        "ExecutablePath": [
+            "Contents/MacOS/TSCAdjustReset"
+        ],
+        "PlistPath": [
+            "Contents/Info.plist"
+        ],
+        "MinKernel": "",
+        "MaxKernel": "",
+        "Arch": "Any",
+        "os_support": "OS X 10.11或更新",
+        "essential": false,
+        "type": "cpu tsc adjust",
+        "function": "旨在解决在 X299 主板上使用 Skylake-X CPU 启动 macOS 时未同步 TSC（时间戳计数器）所导致的问题",
+        "note": [
+            "可以修改当前CPU线程数超过苹果允许的最大线程数而导致的崩溃问题",
+            "内核扩展的基础是 VoodooTSCSync，但它解决了特定于 X299 主板和 Skylake-X CPU 的问题",
+            "通常在X99,X299等高端服务器平台使用,可以避免可能导致的系统崩溃或重启,睡眠唤醒后的卡顿问题"
+        ]
+    },
+    {
+        "name": "VoodooTSCSync",
+        "url": "https://github.com/RehabMan/VoodooTSCSync",
+        "BundlePath": [
+            "VoodooTSCSync.kext"
+        ],
+        "Comment": "",
+        "Enabled": [
+            true
+        ],
+        "ExecutablePath": [
+            "Contents/MacOS/VoodooTSCSync"
+        ],
+        "PlistPath": [
+            "Contents/Info.plist"
+        ],
+        "MinKernel": "",
+        "MaxKernel": "",
+        "Arch": "Any",
+        "os_support": "OS X 10.11或更新",
+        "essential": false,
+        "type": "cpu tsc syncs",
+        "function": "旨在解决 CPU 时间戳计数器 (TSC) 同步问题，特别是在 Hackintosh 或虚拟化环境中运行 macOS 时可能会遇到的问题",
+        "note": [
+            "支持Intel和AMD平台CPU,可以修改当前CPU线程数超过苹果允许的最大线程数而导致的崩溃问题",
+            "内核扩展的基础是 VoodooTSCSync，但它解决了特定于 X299 主板和 Skylake-X CPU 的问题",
+            "通常在X99,X299,AMD等高端服务器平台使用,可以避免可能导致的系统崩溃或重启,睡眠唤醒后的卡顿问题"
+        ]
+    },
+    {
+        "name": "NullCPUPowerManagement",
+        "url": "https://github.com/corpnewt/NullCPUPowerManagement",
+        "BundlePath": [
+            "NullCPUPowerManagement.kext"
+        ],
+        "Comment": "",
+        "Enabled": [
+            true
+        ],
+        "ExecutablePath": [
+            "Contents/MacOS/NullCPUPowerManagement"
+        ],
+        "PlistPath": [
+            "Contents/Info.plist"
+        ],
+        "MinKernel": "",
+        "MaxKernel": "",
+        "Arch": "Any",
+        "os_support": "OS X 10.6或更新",
+        "essential": false,
+        "type": "Null CpuPower",
+        "function": "绕过或替代系统中的AppleIntelCPUPowerManagement电源管理,以避免可能导致系统崩溃或重启问题",
+        "note": [
+            "适用于特定的Mac系统，特别是那些使用较旧的CPU（如Penryn、Harpertown等）的系统，以及在虚拟机环境中运行macOS的情况",
+            "扩展提供了一个命令行选项“-allowAppleCPUPM”，允许用户在需要时禁用它，以便让系统使用原生的AppleIntelCPUPowerManagement电源管理",
+            "通常在775,X58及更老的平台使用,可以避免可能导致的系统崩溃或重启问题"
+        ]
+    },
+    {
+        "name": "NullEthernet",
+        "url": "",
+        "BundlePath": [
+            "NullEthernet.kext"
+        ],
+        "Comment": "",
+        "Enabled": [
+            true
+        ],
+        "ExecutablePath": [
+            "Contents/MacOS/NullEthernet"
+        ],
+        "PlistPath": [
+            "Contents/Info.plist"
+        ],
+        "MinKernel": "",
+        "MaxKernel": "",
+        "Arch": "Any",
+        "os_support": "OS X 10.13或更新",
+        "essential": false,
+        "type": "",
+        "function": "",
+        "note": [
+            ""
+        ]
+    },
+    {
+        "name": "ElliottForceLegacyRTC",
+        "url": "",
+        "BundlePath": [
+            "ElliottForceLegacyRTC.kext"
+        ],
+        "Comment": "",
+        "Enabled": [
+            true
+        ],
+        "ExecutablePath": [
+            "Contents/MacOS/ElliottForceLegacyRTC"
+        ],
+        "PlistPath": [
+            "Contents/Info.plist"
+        ],
+        "MinKernel": "",
+        "MaxKernel": "",
+        "Arch": "Any",
+        "os_support": "OS X 10.6或更新",
+        "essential": false,
+        "type": "RTC",
+        "function": "",
+        "note": [
+            ""
+        ]
+    },
+    {
+        "name": "RTCMemoryFixup",
+        "url": "",
+        "BundlePath": [
+            "RTCMemoryFixup.kext"
+        ],
+        "Comment": "",
+        "Enabled": [
+            true
+        ],
+        "ExecutablePath": [
+            "Contents/MacOS/RTCMemoryFixup"
+        ],
+        "PlistPath": [
+            "Contents/Info.plist"
+        ],
+        "MinKernel": "",
+        "MaxKernel": "",
+        "Arch": "Any",
+        "os_support": "macOS 10.13及以上系统",
+        "essential": false,
+        "type": "RTC",
+        "function": "",
+        "note": [
+            ""
+        ]
+    },
+    {
+        "name": "RealtekRTL8100",
+        "url": "https://github.com/Mieze/RealtekRTL8100",
+        "BundlePath": [
+            "RealtekRTL8100.kext"
+        ],
+        "Comment": "",
+        "Enabled": [
+            true
+        ],
+        "ExecutablePath": [
+            "Contents/MacOS/RealtekRTL8100"
+        ],
+        "PlistPath": [
+            "Contents/Info.plist"
+        ],
+        "MinKernel": "",
+        "MaxKernel": "",
+        "Arch": "Any",
+        "os_support": "OS X 10.12或更新",
+        "essential": false,
+        "type": "nic100",
+        "function": "810X,8100,8101E,8102E,8103E,8401E,8105E,8402,8106E,8106EUS,8107E,8136,8139",
+        "note": [
+            "百兆有线网卡驱动",
+            "支持RTL8101E、RTL8102E、RTL8103E、RTL8401E、RTL8105E、RTL8402、RTL8106E、 RTL8106EUS、RTL8107E、RTL8139网卡",
+            "通常用于传统老平台"
+        ]
+    },
+    {
+        "name": "AppleIntelE1000e",
+        "url": "https://github.com/chris1111/AppleIntelE1000e",
+        "BundlePath": [
+            "AppleIntelE1000e.kext"
+        ],
+        "Comment": "",
+        "Enabled": [
+            true
+        ],
+        "ExecutablePath": [
+            "Contents/MacOS/AppleIntelE1000e"
+        ],
+        "PlistPath": [
+            "Contents/Info.plist"
+        ],
+        "MinKernel": "",
+        "MaxKernel": "",
+        "Arch": "Any",
+        "os_support": "OS X 10.6或更新",
+        "essential": false,
+        "type": "nic1000",
+        "function": "82540,82541,82542,82543,82545,82546,82547,82578,82579,82574L,82571,82572,82573,82574,82583,I217-V",
+        "note": [
+            "千兆网卡驱动",
+            "支持Intel 82540 ~ 82547,82578 ~ 82579,82574L,82571 ~ 82574,82583,I217-V等网卡",
+            "通常用于传统老平台"
+        ]
+    },
+    {
+        "name": "BCM5722D",
+        "url": "https://github.com/chris1111/BCM5722D",
+        "BundlePath": [
+            "BCM5722D.kext"
+        ],
+        "Comment": "",
+        "Enabled": [
+            true
+        ],
+        "ExecutablePath": [
+            "Contents/MacOS/BCM5722D"
+        ],
+        "PlistPath": [
+            "Contents/Info.plist"
+        ],
+        "MinKernel": "",
+        "MaxKernel": "",
+        "Arch": "Any",
+        "os_support": "OS X 10.7或更新",
+        "essential": false,
+        "type": "nic1000",
+        "function": "BCM5722,BCM5754,BCM5754M,BCM5755,BCM5755M,BCM57788,BCM5787,BCM5787M,BCM5906,BCM5906M",
+        "note": [
+            "千兆有线网卡驱动",
+            "支持BCM5722,BCM5754,BCM5754M,BCM5755,BCM5755M,BCM57788,BCM5787,BCM5787M,BCM5906,BCM5906M等网卡",
+            "通常用于传统老平台"
+        ]
+    },
+    {
+        "name": "AtherosL1cEthernet",
+        "url": "https://github.com/chris1111/AtherosL1cEthernet",
+        "BundlePath": [
+            "AtherosL1cEthernet.kext"
+        ],
+        "Comment": "",
+        "Enabled": [
+            true
+        ],
+        "ExecutablePath": [
+            "Contents/MacOS/AtherosL1cEthernet"
+        ],
+        "PlistPath": [
+            "Contents/Info.plist"
+        ],
+        "MinKernel": "",
+        "MaxKernel": "",
+        "Arch": "Any",
+        "os_support": "OS X 10.7或更新",
+        "essential": false,
+        "type": "nic1000",
+        "function": "AR8131,AR8132,AR8151,AR8152",
+        "note": [
+            "千兆有线网卡驱动",
+            "支持AR8131, AR8132, AR8151, AR8152等网卡",
+            "通常用于传统老平台"
+        ]
+    },
+    {
+        "name": "RealtekRTL8111",
+        "url": "https://github.com/Mieze/RTL8111_driver_for_OS_X",
+        "BundlePath": [
+            "RealtekRTL8111.kext"
+        ],
+        "Comment": "",
+        "Enabled": [
+            true
+        ],
+        "ExecutablePath": [
+            "Contents/MacOS/RealtekRTL8111"
+        ],
+        "PlistPath": [
+            "Contents/Info.plist"
+        ],
+        "MinKernel": "",
+        "MaxKernel": "",
+        "Arch": "Any",
+        "os_support": "OS X 10.8或更新",
+        "essential": false,
+        "type": "nic1000",
+        "function": "8111,8168,E2500",
+        "note": [
+            "千兆有线网卡驱动",
+            "支持Realtek RTL8111 / 8168 B / C / D / E / F / G / H,支持⻢甲卡Killer E2500及以上网卡",
+            "RealtekRTL8111新版本驱动可能仅支持10.13.x及以上系统"
+        ]
+    },
+    {
+        "name": "AtherosE2200Ethernet",
+        "url": "https://github.com/Mieze/AtherosE2200Ethernet",
+        "BundlePath": [
+            "AtherosE2200Ethernet.kext"
+        ],
+        "Comment": "",
+        "Enabled": [
+            true
+        ],
+        "ExecutablePath": [
+            "Contents/MacOS/AtherosE2200Ethernet"
+        ],
+        "PlistPath": [
+            "Contents/Info.plist"
+        ],
+        "MinKernel": "",
+        "MaxKernel": "",
+        "Arch": "Any",
+        "os_support": "OS X 10.8或更新",
+        "essential": false,
+        "type": "nic1000",
+        "function": "AR816X,AR817X,E220X,E2400",
+        "note": [
+            "千兆有线网卡驱动",
+            "支持AR816x ,AR817x,Killer E220x,Killer E2400等网卡"
+        ]
+    },
+    {
+        "name": "AppleIGC",
+        "url": "https://github.com/SongXiaoXi/AppleIGC",
+        "BundlePath": [
+            "AppleIGC.kext"
+        ],
+        "Comment": "",
+        "Enabled": [
+            true
+        ],
+        "ExecutablePath": [
+            "Contents/MacOS/AppleIGC"
+        ],
+        "PlistPath": [
+            "Contents/Info.plist"
+        ],
+        "MinKernel": "",
+        "MaxKernel": "",
+        "Arch": "Any",
+        "os_support": "macOS Monterey 12或更新",
+        "essential": false,
+        "type": "nic1000",
+        "function": "I225,I226",
+        "note": [
+            "千兆(支持2.5G)有线网卡驱动",
+            "支持所有符合IGC的设备(i225、i226,i226-V等有线网卡),部分设备的PCI ID可能不在IOPCIMatch列表，自行添加测试",
+            "相比AppleEthernetE1000驱动程序具有更好的性能及稳定性(i226-V在Monterey系统使用AppleEthernetE1000可能会引起内核恐慌)"
+        ]
+    },
+    {
+        "name": "AppleIGB",
+        "url": "https://github.com/donatengit/AppleIGB/releases",
+        "BundlePath": [
+            "AppleIGB.kext"
+        ],
+        "Comment": "",
+        "Enabled": [
+            true
+        ],
+        "ExecutablePath": [
+            "Contents/MacOS/AppleIGB"
+        ],
+        "PlistPath": [
+            "Contents/Info.plist"
+        ],
+        "MinKernel": "21.0.0",
+        "MaxKernel": "",
+        "Arch": "Any",
+        "os_support": "macOS Monterey 12或更新",
+        "essential": false,
+        "type": "nic1000",
+        "function": "82575,82576,82580,DH89XXCC,I350,I354,I210,I211",
+        "note": [
+            "千兆(支持2.5G)有线网卡驱动",
+            "支持Intel 82575, 82576, 82580, dh89xxcc,i350,i354,i210和 i211网卡",
+            "可能存在不稳定性问题,建议保持在Big Sur版本,并使用SmallTree",
+            "通常适用于macOS Monterey 12及以上系统"
+        ]
+    },
+    {
+        "name": "IntelMausi",
+        "url": "https://github.com/acidanthera/IntelMausi",
+        "BundlePath": [
+            "IntelMausi.kext"
+        ],
+        "Comment": "",
+        "Enabled": [
+            true
+        ],
+        "ExecutablePath": [
+            "Contents/MacOS/IntelMausi"
+        ],
+        "PlistPath": [
+            "Contents/Info.plist"
+        ],
+        "MinKernel": "",
+        "MaxKernel": "",
+        "Arch": "Any",
+        "os_support": "OS X 10.9或更新",
+        "essential": false,
+        "type": "nic1000",
+        "function": "82578,82579,I217,I218,I219",
+        "note": [
+            "千兆有线网卡驱动",
+            "支持Intel 82578、82579、I217、I218 和 I219 等网卡",
+            "OS X 10.6 ~ 10.8 使用IntelSnowMausi"
+        ]
+    },
+    {
+        "name": "IntelMausiEthernet",
+        "url": "https://github.com/Mieze/IntelMausiEthernet",
+        "BundlePath": [
+            "IntelMausiEthernet.kext"
+        ],
+        "Comment": "",
+        "Enabled": [
+            true
+        ],
+        "ExecutablePath": [
+            "Contents/MacOS/IntelMausiEthernet"
+        ],
+        "PlistPath": [
+            "Contents/Info.plist"
+        ],
+        "MinKernel": "",
+        "MaxKernel": "",
+        "Arch": "Any",
+        "os_support": "OS X 10.9或更新",
+        "essential": false,
+        "type": "nic1000",
+        "function": "82578LM,82578LC,82578DM,82578DC,82579LM,82579V,I217LM,I217V,I218LM,I218V,I218LM2,I218V2,I218LM3,I219V,I219LM,I219V2,I219LM2,I219LM2",
+        "note": [
+            "千兆有线网卡驱动",
+            "支持Intel 82578LM、82578LC、82578DM、82578DC、 82579LM、82579V、I217LM、 I217V、I218LM、 I218V、I218LM2、I218V2、I218LM3、I219V、 I219LM、I219V2、 I219LM2、I219LM2等网卡"
+        ]
+    },
+    {
+        "name": "LucyRTL8125Ethernet",
+        "url": "https://github.com/Mieze/LucyRTL8125Ethernet",
+        "BundlePath": [
+            "LucyRTL8125Ethernet.kext"
+        ],
+        "Comment": "",
+        "Enabled": [
+            true
+        ],
+        "ExecutablePath": [
+            "Contents/MacOS/LucyRTL8125Ethernet"
+        ],
+        "PlistPath": [
+            "Contents/Info.plist"
+        ],
+        "MinKernel": "",
+        "MaxKernel": "",
+        "Arch": "Any",
+        "os_support": "macOS Catlina 10.15或更新",
+        "essential": false,
+        "type": "nic1000",
+        "function": "8125",
+        "note": [
+            "千兆(支持2.5G)有线网卡驱动",
+            "支持Realtek RTL8125系列以太网卡"
+        ]
+    },
+    {
+        "name": "SmallTreeIntel82576",
+        "url": "https://github.com/khronokernel/SmallTree-I211-AT-patch",
+        "BundlePath": [
+            "SmallTreeIntel82576.kext"
+        ],
+        "Comment": "",
+        "Enabled": [
+            true
+        ],
+        "ExecutablePath": [
+            "Contents/MacOS/SmallTreeIntel82576"
+        ],
+        "PlistPath": [
+            "Contents/Info.plist"
+        ],
+        "MinKernel": "",
+        "MaxKernel": "",
+        "Arch": "Any",
+        "os_support": "OS X 10.9或更新",
+        "essential": false,
+        "type": "nic1000",
+        "function": "I211",
+        "note": [
+            "千兆(支持2.5G)有线网卡驱动",
+            "支持Intel i211有线网卡,此型号常见于AMD主板",
+            "通常适用于macOS Big Sur及以下版本,macOS Monterey可能存在不稳定情况",
+            "兼容性:OS X 10.9-12（推荐版本v1.0.6）、macOS 10.13-14（推荐版本v1.2.5）、macOS 10.15+（推荐版本v1.3.0）"
+        ]
+    },
+    {
+        "name": "IntelLucy",
+        "url": "https://github.com/Mieze/IntelLucy",
+        "BundlePath": [
+            "IntelLucy.kext"
+        ],
+        "Comment": "",
+        "Enabled": [
+            true
+        ],
+        "ExecutablePath": [
+            "Contents/MacOS/IntelLucy"
+        ],
+        "PlistPath": [
+            "Contents/Info.plist"
+        ],
+        "MinKernel": "17.0.0",
+        "MaxKernel": "",
+        "Arch": "Any",
+        "os_support": "macOS 10.13及以上系统",
+        "essential": false,
+        "type": "nic100000",
+        "function": "X520,X540,X550,82598",
+        "note": [
+            "万兆(支持10G)有线网卡驱动",
+            "支持英特尔X520、X540、X550和82598以太网适配器,不再需要硬件修改(以前Smalltree8259x.kext需要)",
+            "仅支持macOS 10.13及以上系统",
+            "注意:必须在BIOS UEFI设置中启用WoL"
+        ]
+    },
+    {
+        "name": "SATAUnsupported",
+        "url": "",
+        "BundlePath": [
+            "SATAUnsupported.kext"
+        ],
+        "Comment": "",
+        "Enabled": [
+            true
+        ],
+        "ExecutablePath": [
+            ""
+        ],
+        "PlistPath": [
+            "Contents/Info.plist"
+        ],
+        "MinKernel": "",
+        "MaxKernel": "19.99.99",
+        "Arch": "Any",
+        "os_support": "仅支持macOS Calina 10.15及以下系统",
+        "essential": false,
+        "type": "sata 10.15",
+        "function": "一个修复macOS Catalina 10.15.7及以下系统,不显示SATA磁盘的驱动",
+        "note": [
+            "主要修复macOS Catalina及以下系统,不显示内置SATA磁盘问题",
+            "如果需要修复macOS BigSur及以上系统,不显示内置SATA磁盘问题,请使用CtlnaAHCIPort.kext",
+            "该驱动适用于3代及以下老平台"
+        ]
+    },
+    {
+        "name": "CtlnaAHCIPort",
+        "url": "",
+        "BundlePath": [
+            "CtlnaAHCIPort.kext"
+        ],
+        "Comment": "",
+        "Enabled": [
+            true
+        ],
+        "ExecutablePath": [
+            "Contents/MacOS/CtlnaAHCIPort"
+        ],
+        "PlistPath": [
+            "Contents/Info.plist"
+        ],
+        "MinKernel": "20.0.0",
+        "MaxKernel": "",
+        "Arch": "Any",
+        "os_support": "仅支持macOS BigSur 11及以上系统",
+        "essential": false,
+        "type": "sata 11",
+        "function": "一个修复macOS BigSur 11.x及以上系统,不显示SATA磁盘的驱动",
+        "note": [
+            "主要修复macOS BigSur及以上系统,不显示内置SATA磁盘问题",
+            "如果需要修复macOS Catalina及以下系统,不显示内置SATA磁盘问题,请使用SATAUnsupported.kext",
+            "通常适用于3代及以下老平台"
+        ]
+    },
+    {
+        "name": "IOSkywalkFamily",
+        "url": "",
+        "BundlePath": [
+            "IOSkywalkFamily.kext"
+        ],
+        "Comment": "",
+        "Enabled": [
+            true
+        ],
+        "ExecutablePath": [
+            "Contents/MacOS/IOSkywalkFamily"
+        ],
+        "PlistPath": [
+            "Contents/Info.plist"
+        ],
+        "MinKernel": "23.0.0",
+        "MaxKernel": "23.99.99",
+        "Arch": "Any",
+        "os_support": "仅支持macOS Sonoma 14系统",
+        "essential": false,
+        "type": "brcm wifi",
+        "function": "博通Wifi驱动",
+        "note": [
+            ""
+        ]
+    },
+    {
+        "name": "IO80211FamilyLegacy",
+        "url": "https://github.com/acidanthera/AirportBrcmFixup",
+        "BundlePath": [
+            "IO80211FamilyLegacy.kext",
+            "IO80211FamilyLegacy.kext/Contents/PlugIns/AirPortBrcmNIC.kext"
+        ],
+        "Comment": "",
+        "Enabled": [
+            true,
+            true
+        ],
+        "ExecutablePath": [
+            "Contents/MacOS/IO80211FamilyLegacy",
+            "Contents/MacOS/AirPortBrcmNIC"
+        ],
+        "PlistPath": [
+            "Contents/Info.plist",
+            "Contents/Info.plist"
+        ],
+        "MinKernel": "23.0.0",
+        "MaxKernel": "23.99.99",
+        "Arch": "Any",
+        "os_support": "仅支持macOS Sonoma 14系统",
+        "essential": false,
+        "type": "brcm wifi",
+        "function": "博通Wifi驱动",
+        "note": [
+            ""
+        ]
+    },
+    {
+        "name": "AirportBrcmFixup",
+        "url": "https://github.com/acidanthera/AirportBrcmFixup",
+        "BundlePath": [
+            "AirportBrcmFixup.kext",
+            "AirportBrcmFixup.kext/Contents/PlugIns/AirPortBrcm4360_Injector.kext",
+            "AirportBrcmFixup.kext/Contents/PlugIns/AirPortBrcmNIC_Injector.kext"
+        ],
+        "Comment": "",
+        "Enabled": [
+            true,
+            false,
+            true
+        ],
+        "ExecutablePath": [
+            "Contents/MacOS/AirportBrcmFixup",
+            "",
+            ""
+        ],
+        "PlistPath": [
+            "Contents/Info.plist",
+            "Contents/Info.plist",
+            "Contents/Info.plist"
+        ],
+        "MinKernel": "18.0.0",
+        "MaxKernel": "",
+        "Arch": "Any",
+        "os_support": "macOS Catlina 10.14或更新",
+        "essential": false,
+        "type": "brcm wifi",
+        "function": "老款博通Wifi驱动",
+        "note": [
+            ""
+        ]
+    },
+    {
+        "name": "AirportItlwm_Sonoma_14_4",
+        "url": "https://github.com/OpenIntelWireless/itlwm",
+        "BundlePath": [
+            "AirportItlwm_Sonoma_14_4.kext"
+        ],
+        "Comment": "",
+        "Enabled": [
+            true
+        ],
+        "ExecutablePath": [
+            "Contents/MacOS/AirportItlwm"
+        ],
+        "PlistPath": [
+            "Contents/Info.plist"
+        ],
+        "MinKernel": "23.4.0",
+        "MaxKernel": "23.4.99",
+        "Arch": "Any",
+        "os_support": "仅支持macOS Sonoma 14.4系统",
+        "essential": false,
+        "type": "intel wifi",
+        "function": "支持Sonoma 14.4系统Intel Wifi驱动",
+        "note": [
+            ""
+        ]
+    },
+    {
+        "name": "AirportItlwm_Sonoma",
+        "url": "https://github.com/OpenIntelWireless/itlwm",
+        "BundlePath": [
+            "AirportItlwm_Sonoma.kext"
+        ],
+        "Comment": "",
+        "Enabled": [
+            true
+        ],
+        "ExecutablePath": [
+            "Contents/MacOS/AirportItlwm"
+        ],
+        "PlistPath": [
+            "Contents/Info.plist"
+        ],
+        "MinKernel": "23.0.0",
+        "MaxKernel": "23.3.0",
+        "Arch": "Any",
+        "os_support": "仅支持macOS Sonoma 14系统",
+        "essential": false,
+        "type": "intel wifi",
+        "function": "支持Sonoma系统Intel Wifi驱动",
+        "note": [
+            ""
+        ]
+    },
+    {
+        "name": "AirportItlwm_Ventura",
+        "url": "https://github.com/OpenIntelWireless/itlwm",
+        "BundlePath": [
+            "AirportItlwm_Ventura.kext"
+        ],
+        "Comment": "",
+        "Enabled": [
+            true
+        ],
+        "ExecutablePath": [
+            "Contents/MacOS/AirportItlwm"
+        ],
+        "PlistPath": [
+            "Contents/Info.plist"
+        ],
+        "MinKernel": "22.0.0",
+        "MaxKernel": "22.99.99",
+        "Arch": "Any",
+        "os_support": "仅支持macOS Ventura 13系统",
+        "essential": false,
+        "function": "支持Ventura系统Intel Wifi驱动",
+        "note": [
+            ""
+        ]
+    },
+    {
+        "name": "AirportItlwm_Monterey",
+        "url": "https://github.com/OpenIntelWireless/itlwm",
+        "BundlePath": [
+            "AirportItlwm_Monterey.kext"
+        ],
+        "Comment": "",
+        "Enabled": [
+            true
+        ],
+        "ExecutablePath": [
+            "Contents/MacOS/AirportItlwm"
+        ],
+        "PlistPath": [
+            "Contents/Info.plist"
+        ],
+        "MinKernel": "21.0.0",
+        "MaxKernel": "21.99.99",
+        "Arch": "Any",
+        "os_support": "仅支持macOS Monterey 12系统",
+        "essential": false,
+        "type": "intel wifi",
+        "function": "支持Monterey系统Intel Wifi驱动",
+        "note": [
+            ""
+        ]
+    },
+    {
+        "name": "AirportItlwm_BigSur",
+        "url": "https://github.com/OpenIntelWireless/itlwm",
+        "BundlePath": [
+            "AirportItlwm_BigSur.kext"
+        ],
+        "Comment": "",
+        "Enabled": [
+            true
+        ],
+        "ExecutablePath": [
+            "Contents/MacOS/AirportItlwm"
+        ],
+        "PlistPath": [
+            "Contents/Info.plist"
+        ],
+        "MinKernel": "20.0.0",
+        "MaxKernel": "20.99.99",
+        "Arch": "Any",
+        "os_support": "仅支持macOS BigSur 11系统",
+        "essential": false,
+        "type": "intel wifi",
+        "function": "支持BigSur系统Intel Wifi驱动",
+        "note": [
+            ""
+        ]
+    },
+    {
+        "name": "AirportItlwm_Catalina",
+        "url": "https://github.com/OpenIntelWireless/itlwm",
+        "BundlePath": [
+            "AirportItlwm_Catalina.kext"
+        ],
+        "Comment": "",
+        "Enabled": [
+            true
+        ],
+        "ExecutablePath": [
+            "Contents/MacOS/AirportItlwm"
+        ],
+        "PlistPath": [
+            "Contents/Info.plist"
+        ],
+        "MinKernel": "19.0.0",
+        "MaxKernel": "19.99.99",
+        "Arch": "Any",
+        "os_support": "仅支持macOS Catalina 10.15系统",
+        "essential": false,
+        "type": "intel wifi",
+        "function": "支持Catalina系统Intel Wifi驱动",
+        "note": [
+            ""
+        ]
+    },
+    {
+        "name": "AirportItlwm_Mojave",
+        "url": "https://github.com/OpenIntelWireless/itlwm",
+        "BundlePath": [
+            "AirportItlwm_Mojave.kext"
+        ],
+        "Comment": "",
+        "Enabled": [
+            true
+        ],
+        "ExecutablePath": [
+            "Contents/MacOS/AirportItlwm"
+        ],
+        "PlistPath": [
+            "Contents/Info.plist"
+        ],
+        "MinKernel": "18.0.0",
+        "MaxKernel": "18.99.99",
+        "Arch": "Any",
+        "os_support": "仅支持macOS Mojave 10.14系统",
+        "essential": false,
+        "type": "intel wifi",
+        "function": "支持Mojave系统Intel Wifi驱动",
+        "note": [
+            ""
+        ]
+    },
+    {
+        "name": "AirportItlwm_HighSierra",
+        "url": "https://github.com/OpenIntelWireless/itlwm",
+        "BundlePath": [
+            "AirportItlwm_HighSierra.kext"
+        ],
+        "Comment": "",
+        "Enabled": [
+            true
+        ],
+        "ExecutablePath": [
+            "Contents/MacOS/AirportItlwm"
+        ],
+        "PlistPath": [
+            "Contents/Info.plist"
+        ],
+        "MinKernel": "17.0.0",
+        "MaxKernel": "17.99.99",
+        "Arch": "Any",
+        "os_support": "仅支持macOS HighSierra 10.13系统",
+        "essential": false,
+        "type": "intel wifi",
+        "function": "支持HighSierra系统Intel Wifi驱动",
+        "note": [
+            ""
+        ]
+    },
+    {
+        "name": "IntelBTPatcher",
+        "url": "",
+        "BundlePath": [
+            "IntelBTPatcher.kext"
+        ],
+        "Comment": "Fix Bluetooth 4.X and Bluetooth 5.X devices",
+        "Enabled": [
+            true
+        ],
+        "ExecutablePath": [
+            "Contents/MacOS/IntelBTPatcher"
+        ],
+        "PlistPath": [
+            "Contents/Info.plist"
+        ],
+        "MinKernel": "21.0.0",
+        "MaxKernel": "",
+        "Arch": "Any",
+        "os_support": "macOS Catlina 10.14或更新",
+        "essential": false,
+        "type": "brcm",
+        "function": "老款博通蓝牙驱动",
+        "note": [
+            ""
+        ]
+    },
+    {
+        "name": "IntelBluetoothInjector",
+        "url": "",
+        "BundlePath": [
+            "IntelBluetoothInjector.kext"
+        ],
+        "Comment": "",
+        "Enabled": [
+            true
+        ],
+        "ExecutablePath": [
+            ""
+        ],
+        "PlistPath": [
+            "Contents/Info.plist"
+        ],
+        "MinKernel": "",
+        "MaxKernel": "20.99.99",
+        "Arch": "Any",
+        "os_support": "macOS Catlina 10.15或更新",
+        "essential": false,
+        "type": "bluetooth",
+        "function": "蓝牙驱动",
+        "note": [
+            ""
+        ]
+    },
+    {
+        "name": "IntelBluetoothFirmware",
+        "url": "",
+        "BundlePath": [
+            "IntelBluetoothFirmware.kext"
+        ],
+        "Comment": "",
+        "Enabled": [
+            true
+        ],
+        "ExecutablePath": [
+            "Contents/MacOS/IntelBluetoothFirmware"
+        ],
+        "PlistPath": [
+            "Contents/Info.plist"
+        ],
+        "MinKernel": "",
+        "MaxKernel": "",
+        "Arch": "Any",
+        "os_support": "macOS Catlina 10.15或更新",
+        "essential": false,
+        "type": "bluetooth",
+        "function": "蓝牙驱动",
+        "note": [
+            ""
+        ]
+    },
+    {
+        "name": "BlueToolFixup",
+        "url": "",
+        "BundlePath": [
+            "BlueToolFixup.kext"
+        ],
+        "Comment": "",
+        "Enabled": [
+            true
+        ],
+        "ExecutablePath": [
+            "Contents/MacOS/BlueToolFixup"
+        ],
+        "PlistPath": [
+            "Contents/Info.plist"
+        ],
+        "MinKernel": "21.0.0",
+        "MaxKernel": "",
+        "Arch": "Any",
+        "os_support": "macOS Catlina 10.15或更新",
+        "essential": false,
+        "type": "bluetooth",
+        "function": "蓝牙驱动",
+        "note": [
+            ""
+        ]
+    },
+    {
+        "name": "BrcmBluetoothInjector",
+        "url": "",
+        "BundlePath": [
+            "BrcmBluetoothInjector.kext"
+        ],
+        "Comment": "",
+        "Enabled": [
+            true
+        ],
+        "ExecutablePath": [
+            ""
+        ],
+        "PlistPath": [
+            "Contents/Info.plist"
+        ],
+        "MinKernel": "",
+        "MaxKernel": "20.99.99",
+        "Arch": "Any",
+        "os_support": "macOS Catlina 10.14或更新",
+        "essential": false,
+        "type": "brcm",
+        "function": "老款博通蓝牙驱动",
+        "note": [
+            ""
+        ]
+    },
+    {
+        "name": "BrcmFirmwareData",
+        "url": "",
+        "BundlePath": [
+            "BrcmFirmwareData.kext"
+        ],
+        "Comment": "",
+        "Enabled": [
+            true
+        ],
+        "ExecutablePath": [
+            "Contents/MacOS/BrcmFirmwareData"
+        ],
+        "PlistPath": [
+            "Contents/Info.plist"
+        ],
+        "MinKernel": "20.0.0",
+        "MaxKernel": "",
+        "Arch": "Any",
+        "os_support": "macOS Catlina 10.14或更新",
+        "essential": false,
+        "type": "brcm",
+        "function": "老款博通蓝牙驱动",
+        "note": [
+            ""
+        ]
+    },
+    {
+        "name": "BrcmPatchRAM",
+        "url": "",
+        "BundlePath": [
+            "BrcmPatchRAM.kext"
+        ],
+        "Comment": "",
+        "Enabled": [
+            true
+        ],
+        "ExecutablePath": [
+            "Contents/MacOS/BrcmPatchRAM"
+        ],
+        "PlistPath": [
+            "Contents/Info.plist"
+        ],
+        "MinKernel": "12.0.0",
+        "MaxKernel": "14.99.99",
+        "Arch": "Any",
+        "os_support": "macOS Catlina 10.14或更新",
+        "essential": false,
+        "type": "brcm",
+        "function": "老款博通蓝牙驱动",
+        "note": [
+            ""
+        ]
+    },
+    {
+        "name": "BrcmPatchRAM2",
+        "url": "",
+        "BundlePath": [
+            "BrcmPatchRAM2.kext"
+        ],
+        "Comment": "",
+        "Enabled": [
+            true
+        ],
+        "ExecutablePath": [
+            "Contents/MacOS/BrcmPatchRAM2"
+        ],
+        "PlistPath": [
+            "Contents/Info.plist"
+        ],
+        "MinKernel": "15.0.0",
+        "MaxKernel": "18.99.99",
+        "Arch": "Any",
+        "os_support": "macOS Catlina 10.14或更新",
+        "essential": false,
+        "type": "brcm",
+        "function": "老款博通蓝牙驱动",
+        "note": [
+            ""
+        ]
+    },
+    {
+        "name": "BrcmPatchRAM3",
+        "url": "",
+        "BundlePath": [
+            "BrcmPatchRAM3.kext"
+        ],
+        "Comment": "",
+        "Enabled": [
+            true
+        ],
+        "ExecutablePath": [
+            "Contents/MacOS/BrcmPatchRAM3"
+        ],
+        "PlistPath": [
+            "Contents/Info.plist"
+        ],
+        "MinKernel": "19.0.0",
+        "MaxKernel": "",
+        "Arch": "Any",
+        "os_support": "macOS Catlina 10.14或更新",
+        "essential": false,
+        "type": "brcm",
+        "function": "老款博通蓝牙驱动",
+        "note": [
+            ""
+        ]
+    },
+    {
+        "name": "HS80211Family",
+        "url": "",
+        "BundlePath": [
+            "HS80211Family.kext"
+        ],
+        "Comment": "",
+        "Enabled": [
+            true
+        ],
+        "ExecutablePath": [
+            "Contents/MacOS/HS80211Family"
+        ],
+        "PlistPath": [
+            "Contents/Info.plist"
+        ],
+        "MinKernel": "18.0.0",
+        "MaxKernel": "20.99.99",
+        "Arch": "Any",
+        "os_support": "macOS 10.14 ~ macOS 11.x",
+        "essential": false,
+        "type": "80211Family",
+        "function": "高通无线网卡必备辅助驱动",
+        "note": [
+            ""
+        ]
+    },
+    {
+        "name": "AirPortAtheros40_9285",
+        "url": "",
+        "BundlePath": [
+            "AirPortAtheros40_9285.kext"
+        ],
+        "Comment": "",
+        "Enabled": [
+            true
+        ],
+        "ExecutablePath": [
+            "Contents/MacOS/AirPortAtheros40"
+        ],
+        "PlistPath": [
+            "Contents/Info.plist"
+        ],
+        "MinKernel": "18.0.0",
+        "MaxKernel": "20.99.99",
+        "Arch": "Any",
+        "os_support": "macOS 10.14 ~ macOS 11.x",
+        "essential": false,
+        "type": "atheros wifi",
+        "function": "AR9285高通无线网卡驱动",
+        "note": [
+            ""
+        ]
+    },
+    {
+        "name": "AirPortAtheros40_9380",
+        "url": "",
+        "BundlePath": [
+            "AirPortAtheros40_9380.kext"
+        ],
+        "Comment": "",
+        "Enabled": [
+            true
+        ],
+        "ExecutablePath": [
+            "Contents/MacOS/AirPortAtheros40"
+        ],
+        "PlistPath": [
+            "Contents/Info.plist"
+        ],
+        "MinKernel": "18.0.0",
+        "MaxKernel": "20.99.99",
+        "Arch": "Any",
+        "os_support": "macOS 10.14 ~ macOS 11.x",
+        "essential": false,
+        "type": "atheros wifi",
+        "function": "AR9380高通无线网卡驱动",
+        "note": [
+            ""
+        ]
+    },
+    {
+        "name": "AirPortAtheros40_9485",
+        "url": "",
+        "BundlePath": [
+            "AirPortAtheros40_9485.kext"
+        ],
+        "Comment": "",
+        "Enabled": [
+            true
+        ],
+        "ExecutablePath": [
+            "Contents/MacOS/AirPortAtheros40"
+        ],
+        "PlistPath": [
+            "Contents/Info.plist"
+        ],
+        "MinKernel": "18.0.0",
+        "MaxKernel": "20.99.99",
+        "Arch": "Any",
+        "os_support": "macOS 10.14 ~ macOS 11.x",
+        "essential": false,
+        "type": "atheros wifi",
+        "function": "AR9485高通无线网卡驱动",
+        "note": [
+            ""
+        ]
+    },
+    {
+        "name": "AirPortAtheros40_9565",
+        "url": "",
+        "BundlePath": [
+            "AirPortAtheros40_9565.kext"
+        ],
+        "Comment": "",
+        "Enabled": [
+            true
+        ],
+        "ExecutablePath": [
+            "Contents/MacOS/AirPortAtheros40"
+        ],
+        "PlistPath": [
+            "Contents/Info.plist"
+        ],
+        "MinKernel": "18.0.0",
+        "MaxKernel": "20.99.99",
+        "Arch": "Any",
+        "os_support": "macOS 10.14 ~ macOS 11.x",
+        "essential": false,
+        "type": "atheros wifi",
+        "function": "AR9565高通无线网卡驱动",
+        "note": [
+            ""
+        ]
+    },
+    {
+        "name": "AirPortAtheros40_9463",
+        "url": "",
+        "BundlePath": [
+            "AirPortAtheros40_9463.kext"
+        ],
+        "Comment": "",
+        "Enabled": [
+            true
+        ],
+        "ExecutablePath": [
+            "Contents/MacOS/AirPortAtheros40"
+        ],
+        "PlistPath": [
+            "Contents/Info.plist"
+        ],
+        "MinKernel": "18.0.0",
+        "MaxKernel": "20.99.99",
+        "Arch": "Any",
+        "os_support": "macOS 10.14 ~ macOS 11.x",
+        "essential": false,
+        "type": "atheros wifi",
+        "function": "AR9463高通无线网卡驱动",
+        "note": [
+            ""
+        ]
+    },
+    {
+        "name": "AirPortAtheros40_9462",
+        "url": "",
+        "BundlePath": [
+            "AirPortAtheros40_9462.kext"
+        ],
+        "Comment": "",
+        "Enabled": [
+            true
+        ],
+        "ExecutablePath": [
+            "Contents/MacOS/AirPortAtheros40"
+        ],
+        "PlistPath": [
+            "Contents/Info.plist"
+        ],
+        "MinKernel": "18.0.0",
+        "MaxKernel": "20.99.99",
+        "Arch": "Any",
+        "os_support": "macOS 10.14 ~ macOS 11.x",
+        "essential": false,
+        "type": "atheros wifi",
+        "function": "AR9462高通无线网卡驱动",
+        "note": [
+            ""
+        ]
+    },
+    {
+        "name": "ApplePS2SmartTouchPad",
+        "url": "https://osxlatitude.com/forums/topic/1948-elan-focaltech-and-synaptics-smart-touchpad-driver/",
+        "BundlePath": [
+            "ApplePS2SmartTouchPad.kext",
+            "ApplePS2SmartTouchPad.kext/Contents/PlugIns/ApplePS2Controller.kext",
+            "ApplePS2SmartTouchPad.kext/Contents/PlugIns/ApplePS2Keyboard.kext"
+        ],
+        "Comment": "",
+        "Enabled": [
+            true,
+            true,
+            true
+        ],
+        "ExecutablePath": [
+            "Contents/MacOS/ApplePS2SmartTouchPad",
+            "Contents/MacOS/ApplePS2Controller",
+            "Contents/MacOS/ApplePS2Keyboard"
+        ],
+        "PlistPath": [
+            "Contents/Info.plist",
+            "Contents/Info.plist",
+            "Contents/Info.plist"
+        ],
+        "MinKernel": "",
+        "MaxKernel": "",
+        "Arch": "Any",
+        "os_support": "OS X 10.6或更新",
+        "essential": false,
+        "type": "ps2",
+        "function": "提供对PS/2键盘及触摸板（TouchPad）设备的支持",
+        "note": [
+            "可以实现触摸、滚动、单击、双击和多指手势等常见触摸板功能",
+            "通常用于3代及之前的笔记本以及带有PS/2接口的台式机"
+        ]
+    },
+    {
+        "name": "VoodooPS2Controller",
+        "url": "https://github.com/acidanthera/VoodooPS2",
+        "BundlePath": [
+            "VoodooPS2Controller.kext",
+            "VoodooPS2Controller.kext/Contents/PlugIns/VoodooPS2Keyboard.kext",
+            "VoodooPS2Controller.kext/Contents/PlugIns/VoodooPS2Mouse.kext",
+            "VoodooPS2Controller.kext/Contents/PlugIns/VoodooPS2Trackpad.kext",
+            "VoodooPS2Controller.kext/Contents/PlugIns/VoodooInput.kext"
+        ],
+        "Comment": "",
+        "Enabled": [
+            true,
+            true,
+            true,
+            true,
+            true
+        ],
+        "ExecutablePath": [
+            "Contents/MacOS/VoodooPS2Controller",
+            "Contents/MacOS/VoodooPS2Keyboard",
+            "Contents/MacOS/VoodooPS2Mouse",
+            "Contents/MacOS/VoodooPS2Trackpad",
+            "Contents/MacOS/VoodooInput"
+        ],
+        "PlistPath": [
+            "Contents/Info.plist",
+            "Contents/Info.plist",
+            "Contents/Info.plist",
+            "Contents/Info.plist",
+            "Contents/Info.plist"
+        ],
+        "MinKernel": "",
+        "MaxKernel": "",
+        "Arch": "Any",
+        "os_support": "OS X 10.6或更新",
+        "essential": false,
+        "type": "ps2",
+        "function": "提供对 PS/2 输入设备（例如键盘和触摸板）的支持",
+        "note": [
+            "使用 ”VoodooInput“ 的 Magic Trackpad II 模拟，以充分利用 macOS 本机驱动程序，而不是处理所有手势操作",
+            "支持更多手势，比如：轻触点击，滚动，放大或缩小，二次点击（双指、左下角、右下角），在全屏应用之间滑动（使用三或四根手指）等",
+            "通常用于3代及之后的笔记本以及带有PS/2接口的台式机"
+        ]
+    },
+    {
+        "name": "VoodooI2C",
+        "url": "https://github.com/VoodooI2C/VoodooI2C",
+        "BundlePath": [
+            "VoodooI2C.kext/Contents/PlugIns/VoodooInput.kext",
+            "VoodooI2C.kext/Contents/PlugIns/VoodooI2CServices.kext",
+            "VoodooI2C.kext/Contents/PlugIns/VoodooGPIO.kext",
+            "VoodooI2C.kext"
+        ],
+        "Comment": "",
+        "Enabled": [
+            true,
+            true,
+            true,
+            true
+        ],
+        "ExecutablePath": [
+            "Contents/MacOS/VoodooInput",
+            "Contents/MacOS/VoodooI2CServices",
+            "Contents/MacOS/VoodooGPIO",
+            "Contents/MacOS/VoodooI2C"
+        ],
+        "PlistPath": [
+            "Contents/Info.plist",
+            "Contents/Info.plist",
+            "Contents/Info.plist",
+            "Contents/Info.plist"
+        ],
+        "MinKernel": "",
+        "MaxKernel": "",
+        "Arch": "Any",
+        "os_support": "OS X 10.6或更新",
+        "essential": false,
+        "type": "i2c",
+        "function": "旨在为 I2C 总线设备提供支持,用于连接微控制器、传感器、触摸屏、触摸板等设备",
+        "note": [
+            "",
+            "",
+            ""
+        ]
+    },
+    {
+        "name": "VoodooSMBus",
+        "url": "",
+        "BundlePath": [
+            "VoodooSMBus.kext"
+        ],
+        "Comment": "",
+        "Enabled": [
+            true
+        ],
+        "ExecutablePath": [
+            "Contents/MacOS/VoodooSMBus"
+        ],
+        "PlistPath": [
+            "Contents/Info.plist"
+        ],
+        "MinKernel": "",
+        "MaxKernel": "",
+        "Arch": "Any",
+        "os_support": "macOS 10.13及以上系统",
+        "essential": false,
+        "type": "i2c synaptic",
+        "function": "适用于 Synaptic 的 I2C HID 触摸板和 Synaptic 的 SMBus 触摸板",
+        "note": [
+            "支持 Force Touch 模拟，允许用户在支持此功能的触摸板上模拟 Force Touch 功能",
+            "支持使用 3 或 4 指手势来执行各种操作，例如切换应用程序、查看任务视图等",
+            "支持通过 PS2 传递的 Trackpoint（类似于 ThinkPad 笔记本电脑上的点触小红点）",
+            "可以与触摸板通过 SMBus 或 I2C 进行通信，这意味着它适用于多种类型的 Synaptic 触摸板设备"
+        ]
+    },
+    {
+        "name": "VoodooRMI",
+        "url": "",
+        "BundlePath": [
+            "VoodooRMI.kext",
+            "VoodooRMI.kext/Contents/PlugIns/VoodooInput.kext",
+            "VoodooRMI.kext/Contents/PlugIns/RMISMBus.kext",
+            "VoodooRMI.kext/Contents/PlugIns/RMII2C.kext"
+        ],
+        "Comment": "",
+        "Enabled": [
+            true,
+            true,
+            true,
+            true
+        ],
+        "ExecutablePath": [
+            "Contents/MacOS/VoodooRMI",
+            "Contents/MacOS/VoodooInput",
+            "Contents/MacOS/RMISMBus",
+            "Contents/MacOS/RMII2C"
+        ],
+        "PlistPath": [
+            "Contents/Info.plist",
+            "Contents/Info.plist",
+            "Contents/Info.plist",
+            "Contents/Info.plist"
+        ],
+        "MinKernel": "",
+        "MaxKernel": "",
+        "Arch": "Any",
+        "os_support": "macOS 10.13及以上系统",
+        "essential": false,
+        "type": "i2c synaptic",
+        "function": "适用于 Synaptic 的 I2C HID 触摸板和 Synaptic 的 SMBus 触摸板",
+        "note": [
+            "支持 Force Touch 模拟，允许用户在支持此功能的触摸板上模拟 Force Touch 功能",
+            "支持使用 3 或 4 指手势来执行各种操作，例如切换应用程序、查看任务视图等",
+            "支持通过 PS2 传递的 Trackpoint（类似于 ThinkPad 笔记本电脑上的点触小红点）",
+            "可以与触摸板通过 SMBus 或 I2C 进行通信，这意味着它适用于多种类型的 Synaptic 触摸板设备"
+        ]
+    },
+    {
+        "name": "VoodooI2CHID",
+        "url": "",
+        "BundlePath": [
+            "VoodooI2CHID.kext"
+        ],
+        "Comment": "",
+        "Enabled": [
+            true
+        ],
+        "ExecutablePath": [
+            "Contents/MacOS/VoodooI2CHID"
+        ],
+        "PlistPath": [
+            "Contents/Info.plist"
+        ],
+        "MinKernel": "",
+        "MaxKernel": "",
+        "Arch": "Any",
+        "os_support": "macOS 10.13及以上系统",
+        "essential": false,
+        "type": "i2c synaptic",
+        "function": "适用于 Synaptic 的 I2C HID 触摸板和 Synaptic 的 SMBus 触摸板",
+        "note": [
+            "支持 Force Touch 模拟，允许用户在支持此功能的触摸板上模拟 Force Touch 功能",
+            "支持使用 3 或 4 指手势来执行各种操作，例如切换应用程序、查看任务视图等",
+            "支持通过 PS2 传递的 Trackpoint（类似于 ThinkPad 笔记本电脑上的点触小红点）",
+            "可以与触摸板通过 SMBus 或 I2C 进行通信，这意味着它适用于多种类型的 Synaptic 触摸板设备"
+        ]
+    },
+    {
+        "name": "BrightnessKeys",
+        "url": "",
+        "BundlePath": [
+            "BrightnessKeys.kext"
+        ],
+        "Comment": "",
+        "Enabled": [
+            true
+        ],
+        "ExecutablePath": [
+            "Contents/MacOS/BrightnessKeys"
+        ],
+        "PlistPath": [
+            "Contents/Info.plist"
+        ],
+        "MinKernel": "",
+        "MaxKernel": "",
+        "Arch": "Any",
+        "os_support": "OS X 10.6或更新",
+        "essential": false,
+        "type": "",
+        "function": "亮度快捷键调节",
+        "note": []
+    },
+    {
+        "name": "RadeonSensor",
+        "url": "",
+        "BundlePath": [
+            "RadeonSensor.kext"
+        ],
+        "Comment": "",
+        "Enabled": [
+            true
+        ],
+        "ExecutablePath": [
+            "Contents/MacOS/RadeonSensor"
+        ],
+        "PlistPath": [
+            "Contents/Info.plist"
+        ],
+        "MinKernel": "",
+        "MaxKernel": "",
+        "Arch": "Any",
+        "os_support": "OS X 10.13或更新",
+        "essential": false,
+        "type": "",
+        "function": "",
+        "note": []
+    },
+    {
+        "name": "SMCRadeonGPU",
+        "url": "",
+        "BundlePath": [
+            "SMCRadeonGPU.kext"
+        ],
+        "Comment": "",
+        "Enabled": [
+            true
+        ],
+        "ExecutablePath": [
+            "Contents/MacOS/SMCRadeonGPU"
+        ],
+        "PlistPath": [
+            "Contents/Info.plist"
+        ],
+        "MinKernel": "",
+        "MaxKernel": "",
+        "Arch": "Any",
+        "os_support": "OS X 10.13或更新",
+        "essential": false,
+        "type": "",
+        "function": "",
+        "note": []
+    },
+    {
+        "name": "GenericUSBXHCI",
+        "url": "",
+        "BundlePath": [
+            "GenericUSBXHCI.kext"
+        ],
+        "Comment": "",
+        "Enabled": [
+            true
+        ],
+        "ExecutablePath": [
+            "Contents/MacOS/GenericUSBXHCI"
+        ],
+        "PlistPath": [
+            "Contents/Info.plist"
+        ],
+        "MinKernel": "",
+        "MaxKernel": "",
+        "Arch": "Any",
+        "os_support": "OS X 10.11或更新",
+        "essential": false,
+        "type": "xhci",
+        "function": "USB驱动,主要修复不支持XHCI",
+        "note": [
+            "USB驱动",
+            "非原生USB控制器需要,比如USB外接拓展卡",
+            "APU需要此驱动",
+            "300系列芯片组需要(H370,B360,H310,Z390(10.14及以上系统不需要),X79,X99,ASRock英特尔主板(B460/Z490+除外)"
+        ]
+    },
+    {
+        "name": "XLNCUSBFix",
+        "url": "",
+        "BundlePath": [
+            "XLNCUSBFix.kext"
+        ],
+        "Comment": "",
+        "Enabled": [
+            true
+        ],
+        "ExecutablePath": [
+            ""
+        ],
+        "PlistPath": [
+            "Contents/Info.plist"
+        ],
+        "MinKernel": "17.0.0",
+        "MaxKernel": "",
+        "Arch": "Any",
+        "os_support": "macOS 10.13及以上系统",
+        "essential": false,
+        "type": "xhci",
+        "function": "Bulldozer(15h) and Jaguar(16h)，比如FM1，FM2,AM3等平台EHCI(USB2.0)和XHCI(USB3.0)修复",
+        "note": [
+            "USB驱动"
+        ]
+    },
+    {
+        "name": "USBInjectAll",
+        "url": "https://github.com/daliansky/OS-X-USB-Inject-All",
+        "BundlePath": [
+            "USBInjectAll.kext"
+        ],
+        "Comment": "",
+        "Enabled": [
+            true
+        ],
+        "ExecutablePath": [
+            "Contents/MacOS/USBInjectAll"
+        ],
+        "PlistPath": [
+            "Contents/Info.plist"
+        ],
+        "MinKernel": "",
+        "MaxKernel": "",
+        "Arch": "Any",
+        "os_support": "OS X 10.6或更新",
+        "essential": false,
+        "type": "usb",
+        "function": "一种USB驱动,解除USB端口限制",
+        "note": [
+            "一种USB驱动,解除USB端口限制"
+        ]
+    },
+    {
+        "name": "USBToolBox",
+        "url": "",
+        "BundlePath": [
+            "USBToolBox.kext"
+        ],
+        "Comment": "",
+        "Enabled": [
+            true
+        ],
+        "ExecutablePath": [
+            "Contents/MacOS/USBToolBox"
+        ],
+        "PlistPath": [
+            "Contents/Info.plist"
+        ],
+        "MinKernel": "",
+        "MaxKernel": "",
+        "Arch": "Any",
+        "os_support": "OS X 10.11或更新",
+        "essential": false,
+        "type": "usb",
+        "function": "另外一种USB驱动",
+        "note": [
+            "另外一种USB驱动,未定制USB时通常搭配UTBDefault.kext"
+        ]
+    },
+    {
+        "name": "UTBDefault",
+        "url": "",
+        "BundlePath": [
+            "UTBDefault.kext"
+        ],
+        "Comment": "",
+        "Enabled": [
+            true
+        ],
+        "ExecutablePath": [
+            ""
+        ],
+        "PlistPath": [
+            "Contents/Info.plist"
+        ],
+        "MinKernel": "",
+        "MaxKernel": "",
+        "Arch": "Any",
+        "os_support": "OS X 10.11或更新",
+        "essential": false,
+        "type": "UTBDefault",
+        "function": "USBToolBox驱动默认辅助USB驱动",
+        "note": [
+            ""
+        ]
+    },
+    {
+        "name": "XHCIUnsupported",
+        "url": "",
+        "BundlePath": [
+            "XHCIUnsupported.kext"
+        ],
+        "Comment": "",
+        "Enabled": [
+            true
+        ],
+        "ExecutablePath": [
+            ""
+        ],
+        "PlistPath": [
+            "Contents/Info.plist"
+        ],
+        "MinKernel": "",
+        "MaxKernel": "",
+        "Arch": "Any",
+        "os_support": "OS X 10.11或更新",
+        "essential": false,
+        "type": "xhci",
+        "function": "USB驱动,主要修复不支持XHCI",
+        "note": [
+            "USB驱动",
+            "非原生USB控制器需要,比如USB外接拓展卡",
+            "AMD CPU不需要此驱动",
+            "300系列芯片组需要(H370,B360,H310,Z390(10.14及以上系统不需要),X79,X99,ASRock英特尔主板(B460/Z490+除外)"
+        ]
+    },
+    {
+        "name": "DummyUSBEHCIPCI",
+        "url": "",
+        "BundlePath": [
+            "DummyUSBEHCIPCI.kext"
+        ],
+        "Comment": "",
+        "Enabled": [
+            true
+        ],
+        "ExecutablePath": [
+            "Contents/MacOS/AppleUSBEHCIPCI"
+        ],
+        "PlistPath": [
+            "Contents/Info.plist"
+        ],
+        "MinKernel": "17.0.0",
+        "MaxKernel": "",
+        "Arch": "Any",
+        "os_support": "macOS 10.13及以上系统",
+        "essential": false,
+        "type": "ehci",
+        "function": "Bulldozer(15h) and Jaguar(16h)，比如FM1，FM2,AM3等平台EHCI(USB2.0)修复",
+        "note": [
+            "USB驱动"
+        ]
+    },
+    {
+        "name": "DummyUSBXHCIPCI",
+        "url": "",
+        "BundlePath": [
+            "DummyUSBXHCIPCI.kext"
+        ],
+        "Comment": "",
+        "Enabled": [
+            true
+        ],
+        "ExecutablePath": [
+            "Contents/MacOS/AppleUSBXHCIPCI"
+        ],
+        "PlistPath": [
+            "Contents/Info.plist"
+        ],
+        "MinKernel": "17.0.0",
+        "MaxKernel": "",
+        "Arch": "Any",
+        "os_support": "macOS 10.13及以上系统",
+        "essential": false,
+        "type": "xhci",
+        "function": "Bulldozer(15h) and Jaguar(16h)，比如FM1，FM2,AM3等平台XHCI(USB3.0)修复",
+        "note": [
+            "USB驱动"
+        ]
+    },
+    {
+        "name": "AppleUSBUHCI",
+        "url": "",
+        "BundlePath": [
+            "AppleUSBUHCI.kext"
+        ],
+        "Comment": "",
+        "Enabled": [
+            true
+        ],
+        "ExecutablePath": [
+            "Contents/MacOS/AppleUSBUHCI"
+        ],
+        "PlistPath": [
+            "Contents/Info.plist"
+        ],
+        "MinKernel": "22.0.0",
+        "MaxKernel": "",
+        "Arch": "Any",
+        "os_support": "仅支持macOS Ventura 13及以上系统",
+        "essential": false,
+        "type": "uhci",
+        "function": "老平台USB1.1键盘鼠标驱动",
+        "note": [
+            "由于苹果在macOS Ventura 13.x及更新系统中删除了USB1.1键盘鼠标驱动(U盘等移动存储不受影响)",
+            "通常搭配AppleUSBUHCIPCI.kext驱动,修复macOS Ventura及以上系统USB键盘鼠标无法使用的问题,需要OCLP打补丁后支持",
+            "该驱动适用于1代及以下老平台(主要是1代之前X58,775等老平台)"
+        ]
+    },
+    {
+        "name": "AppleUSBUHCIPCI",
+        "url": "",
+        "BundlePath": [
+            "AppleUSBUHCIPCI.kext"
+        ],
+        "Comment": "",
+        "Enabled": [
+            true
+        ],
+        "ExecutablePath": [
+            "Contents/MacOS/AppleUSBUHCIPCI"
+        ],
+        "PlistPath": [
+            "Contents/Info.plist"
+        ],
+        "MinKernel": "22.0.0",
+        "MaxKernel": "",
+        "Arch": "Any",
+        "os_support": "仅支持macOS Ventura 13及以上系统",
+        "essential": false,
+        "type": "uhcipci",
+        "function": "老平台USB1.1键盘鼠标辅助驱动",
+        "note": [
+            "由于苹果在macOS Ventura 13.x及更新系统中删除了USB1.1键盘鼠标驱动(U盘等移动存储不受影响)",
+            "通常搭配AppleUSBUHCI.kext驱动,修复macOS Ventura及以上系统USB键盘鼠标无法使用的问题,需要OCLP打补丁后支持",
+            "该驱动适用于1代及以下老平台(主要是1代之前X58,775等老平台)"
+        ]
+    },
+    {
+        "name": "AppleUSBOHCI",
+        "url": "",
+        "BundlePath": [
+            "AppleUSBOHCI.kext"
+        ],
+        "Comment": "",
+        "Enabled": [
+            true
+        ],
+        "ExecutablePath": [
+            "Contents/MacOS/AppleUSBOHCI"
+        ],
+        "PlistPath": [
+            "Contents/Info.plist"
+        ],
+        "MinKernel": "22.0.0",
+        "MaxKernel": "",
+        "Arch": "Any",
+        "os_support": "仅支持macOS Ventura 13及以上系统",
+        "essential": false,
+        "type": "ohci",
+        "function": "老平台USB1.1键盘鼠标驱动",
+        "note": [
+            "由于苹果在macOS Ventura 13.x及更新系统中删除了USB1.1键盘鼠标驱动(U盘等移动存储不受影响)",
+            "通常搭配AppleUSBOHCIPCI.kext驱动,修复macOS Ventura及以上系统USB键盘鼠标无法使用的问题,需要OCLP打补丁后支持",
+            "该驱动适用于1代及以下老平台(主要是1代之前X58,775等老平台)"
+        ]
+    },
+    {
+        "name": "AppleUSBOHCIPCI",
+        "url": "",
+        "BundlePath": [
+            "AppleUSBOHCIPCI.kext"
+        ],
+        "Comment": "",
+        "Enabled": [
+            true
+        ],
+        "ExecutablePath": [
+            "Contents/MacOS/AppleUSBOHCIPCI"
+        ],
+        "PlistPath": [
+            "Contents/Info.plist"
+        ],
+        "MinKernel": "22.0.0",
+        "MaxKernel": "",
+        "Arch": "Any",
+        "os_support": "仅支持macOS Ventura 13及以上系统",
+        "essential": false,
+        "type": "ohcipci",
+        "function": "老平台USB1.1键盘鼠标辅助驱动",
+        "note": [
+            "由于苹果在macOS Ventura 13.x及更新系统中删除了USB1.1键盘鼠标驱动(U盘等移动存储不受影响)",
+            "通常搭配AppleUSBOHCI.kext驱动,修复macOS Ventura及以上系统USB键盘鼠标无法使用的问题,需要OCLP打补丁后支持",
+            "该驱动适用于1代及以下老平台(主要是1代之前X58,775等老平台)"
+        ]
+    },
+    {
+        "name": "AppleIntelCPUPowerManagement",
+        "url": "",
+        "BundlePath": [
+            "AppleIntelCPUPowerManagement.kext"
+        ],
+        "Comment": "",
+        "Enabled": [
+            true
+        ],
+        "ExecutablePath": [
+            "Contents/MacOS/AppleIntelCPUPowerManagement"
+        ],
+        "PlistPath": [
+            "Contents/Info.plist"
+        ],
+        "MinKernel": "22.0.0",
+        "MaxKernel": "",
+        "Arch": "Any",
+        "os_support": "OS X 10.6或更新",
+        "essential": false,
+        "type": "Null CpuPower",
+        "function": "",
+        "note": []
+    },
+    {
+        "name": "AppleIntelCPUPowerManagementClient",
+        "url": "",
+        "BundlePath": [
+            "AppleIntelCPUPowerManagementClient.kext"
+        ],
+        "Comment": "",
+        "Enabled": [
+            true
+        ],
+        "ExecutablePath": [
+            "Contents/MacOS/AppleIntelCPUPowerManagementClient"
+        ],
+        "PlistPath": [
+            "Contents/Info.plist"
+        ],
+        "MinKernel": "22.0.0",
+        "MaxKernel": "",
+        "Arch": "Any",
+        "os_support": "OS X 10.6或更新",
+        "essential": false,
+        "type": "Null CpuPower",
+        "function": "",
+        "note": []
+    },
+    {
+        "name": "RealtekCardReader",
+        "url": "",
+        "BundlePath": [
+            "RealtekCardReader.kext"
+        ],
+        "Comment": "",
+        "Enabled": [
+            true
+        ],
+        "ExecutablePath": [
+            "Contents/MacOS/RealtekCardReader"
+        ],
+        "PlistPath": [
+            "Contents/Info.plist"
+        ],
+        "MinKernel": "",
+        "MaxKernel": "",
+        "Arch": "Any",
+        "os_support": "OS X 10.13或更新",
+        "essential": false,
+        "type": "",
+        "function": "",
+        "note": []
+    },
+    {
+        "name": "RealtekCardReaderFriend",
+        "url": "",
+        "BundlePath": [
+            "RealtekCardReaderFriend.kext"
+        ],
+        "Comment": "",
+        "Enabled": [
+            true
+        ],
+        "ExecutablePath": [
+            "Contents/MacOS/RealtekCardReaderFriend"
+        ],
+        "PlistPath": [
+            "Contents/Info.plist"
+        ],
+        "MinKernel": "",
+        "MaxKernel": "",
+        "Arch": "Any",
+        "os_support": "OS X 10.13或更新",
+        "essential": false,
+        "type": "",
+        "function": "",
+        "note": []
+    },
+    {
+        "name": "EmeraldSDHC",
+        "url": "",
+        "BundlePath": [
+            "EmeraldSDHC.kext"
+        ],
+        "Comment": "",
+        "Enabled": [
+            true
+        ],
+        "ExecutablePath": [
+            "Contents/MacOS/EmeraldSDHC"
+        ],
+        "PlistPath": [
+            "Contents/Info.plist"
+        ],
+        "MinKernel": "",
+        "MaxKernel": "",
+        "Arch": "Any",
+        "os_support": "OS X 10.13或更新",
+        "essential": false,
+        "type": "",
+        "function": "",
+        "note": []
+    }
+]

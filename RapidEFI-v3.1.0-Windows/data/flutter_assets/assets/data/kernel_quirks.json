@@ -1,0 +1,142 @@
+[
+    {
+        "name": "AppleCpuPmCfgLock",
+        "type": "bool",
+        "function": "解决3代及更老的传统平台,某些固件会锁定PKG_CST_CONFIG_CONTROL MSR寄存器的问题",
+        "note": [
+            "由于现代固件提供了CFG锁定设置，允许配置PKG_CST_CONFIG_CONTROL MSR寄存器的锁定，所以应该尽量避免这个选项。对于一些没有在GUI中显示CFG Lock设置的APTIO固件，可以直接访问该选项",
+            "要检查CFG的状态，可以使用附带的VerifyMsrE2工具。某些固件只在某些核心上锁定了这个寄存器",
+            "警告：变量偏移不仅对每个主板，甚至对其固件版本都是唯一的。千万不要在没有检查的情况下尝试使用偏移量"
+        ]
+    },
+    {
+        "name": "AppleXcpmCfgLock",
+        "type": "bool",
+        "function": "解决4代及更新平台,某些固件会锁定PKG_CST_CONFIG_CONTROL MSR寄存器的问题",
+        "note": [
+            "由于现代固件提供了CFG锁定设置，允许配置PKG_CST_CONFIG_CONTROL MSR寄存器的锁定，所以应该尽量避免这个选项。对于一些没有在GUI中显示CFG Lock设置的APTIO固件，可以直接访问该选项",
+            "要检查CFG的状态，可以使用附带的VerifyMsrE2工具。某些固件只在某些核心上锁定了这个寄存器",
+            "注意：应尽可能避免使用该选项。更多细节请参见AppleCpuPmCfgLock描述"
+        ]
+    },
+    {
+        "name": "AppleXcpmExtraMsrs",
+        "type": "bool",
+        "function": "",
+        "note": []
+    },
+    {
+        "name": "AppleXcpmForceBoost",
+        "type": "bool",
+        "function": "",
+        "note": []
+    },
+    {
+        "name": "CustomSMBIOSGuid",
+        "type": "bool",
+        "function": "",
+        "note": []
+    },
+    {
+        "name": "DisableIoMapper",
+        "type": "bool",
+        "function": "",
+        "note": []
+    },
+    {
+        "name": "DisableLinkeditJettison",
+        "type": "bool",
+        "function": "",
+        "note": []
+    },
+    {
+        "name": "DisableRtcChecksum",
+        "type": "bool",
+        "function": "",
+        "note": []
+    },
+    {
+        "name": "ExtendBTFeatureFlags",
+        "type": "bool",
+        "function": "",
+        "note": []
+    },
+    {
+        "name": "CustomPciSerialDevice",
+        "type": "bool",
+        "function": "",
+        "note": []
+    },
+    {
+        "name": "DisableIoMapperMapping",
+        "type": "bool",
+        "function": "",
+        "note": []
+    },
+    {
+        "name": "ForceAquantiaEthernet",
+        "type": "bool",
+        "function": "",
+        "note": []
+    },
+    {
+        "name": "ExternalDiskIcons",
+        "type": "bool",
+        "function": "",
+        "note": []
+    },
+    {
+        "name": "ForceSecureBootScheme",
+        "type": "bool",
+        "function": "",
+        "note": []
+    },
+    {
+        "name": "IncreasePciBarSize",
+        "type": "bool",
+        "function": "",
+        "note": []
+    },
+    {
+        "name": "LapicKernelPanic",
+        "type": "bool",
+        "function": "",
+        "note": []
+    },
+    {
+        "name": "LegacyCommpage",
+        "type": "bool",
+        "function": "",
+        "note": []
+    },
+    {
+        "name": "PanicNoKextDump",
+        "type": "bool",
+        "function": "",
+        "note": []
+    },
+    {
+        "name": "PowerTimeoutKernelPanic",
+        "type": "bool",
+        "function": "",
+        "note": []
+    },
+    {
+        "name": "ProvideCurrentCpuInfo",
+        "type": "bool",
+        "function": "",
+        "note": []
+    },
+    {
+        "name": "ThirdPartyDrives",
+        "type": "bool",
+        "function": "",
+        "note": []
+    },
+    {
+        "name": "XhciPortLimit",
+        "type": "bool",
+        "function": "",
+        "note": []
+    }
+]

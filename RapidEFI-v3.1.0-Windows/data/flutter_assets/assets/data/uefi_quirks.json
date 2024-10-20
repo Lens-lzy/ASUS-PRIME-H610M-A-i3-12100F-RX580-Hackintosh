@@ -1,0 +1,80 @@
+[
+    {
+        "name": "EnableVectorAcceleration",
+        "type": "bool",
+        "function": "启用SHA-512和SHA-384哈希算法的AVX矢量加速",
+        "note": []
+    },
+    {
+        "name": "DisableSecurityPolicy",
+        "type": "bool",
+        "function": "",
+        "note": []
+    },
+    {
+        "name": "ActivateHpetSupport",
+        "type": "bool",
+        "function": "",
+        "note": []
+    },
+    {
+        "name": "EnableVmx",
+        "type": "bool",
+        "function": "",
+        "note": []
+    },
+    {
+        "name": "ForceOcWriteFlash",
+        "type": "bool",
+        "function": "",
+        "note": []
+    },
+    {
+        "name": "ForgeUefiSupport",
+        "type": "bool",
+        "function": "",
+        "note": []
+    },
+    {
+        "name": "IgnoreInvalidFlexRatio",
+        "type": "bool",
+        "function": "",
+        "note": []
+    },
+    {
+        "name": "ReloadOptionRoms",
+        "type": "bool",
+        "function": "",
+        "note": []
+    },
+    {
+        "name": "ReleaseUsbOwnership",
+        "type": "bool",
+        "function": "",
+        "note": []
+    },
+    {
+        "name": "RequestBootVarRouting",
+        "type": "bool",
+        "function": "",
+        "note": []
+    },
+    {
+        "name": "UnblockFsConnect",
+        "type": "bool",
+        "function": "",
+        "note": []
+    },
+    {
+        "name": "ResizeUsePciRbIo",
+        "type": "bool",
+        "function": "",
+        "note": []
+    },
+    {
+        "name": "ShimRetainProtocol",
+        "type": "bool",
+        "function": "",
+        "note": []
+    }
+]

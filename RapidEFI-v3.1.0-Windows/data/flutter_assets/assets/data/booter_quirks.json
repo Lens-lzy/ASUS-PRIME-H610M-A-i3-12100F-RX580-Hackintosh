@@ -1,0 +1,127 @@
+[
+    {
+        "name": "AllowRelocationBlock",
+        "type": "bool",
+        "function": "允许通过重新定位块启动macOS",
+        "note": [
+            "重置块是一个分配在下4GB的缓冲区，用于EfiBoot在固件上加载内核和相关结构，否则下层内存区域就会被（假设的）非运行时数据占用。就在内核启动前，重新定位块被复制到较低的地址。同样的，所有其他指向重定位块的地址也会被仔细调整。重置块可以在以下情况下使用",
+            "没有更好的幻灯片存在(所有的内存都被使用了)",
+            "slide=0被强制（通过参数或安全模式）",
+            "不支持KASLR(幻灯片)(这是macOS 10.7或更高版本)",
+            "此选项需要启用ProvideCustomSlide，通常还需要启用AvoidRuntimeDefrag才能正常工作。当使用重新定位块启动时，不支持休眠，只有在启用此选项时才会使用",
+            "注意：虽然在使用了较低内存的平台上运行旧版macOS需要这个选项，但它与某些硬件和macOS 11不兼容。在这种情况下，请考虑使用EnableSafeModeSlide代替"
+        ]
+    },
+    {
+        "name": "AvoidRuntimeDefrag",
+        "type": "bool",
+        "function": "防止 boot.efi 运行时内存碎片整理",
+        "note": [
+            "它可以修复UEFI运行时服务（日期、时间、NVRAM、电源控制等）对使用SMM支持某些服务（如可变存储）的固件的支持",
+            "SMM可能会尝试通过非SMM区域的物理地址访问内存，但这有时可能已经被boot.efi移动了。这个选项可以防止boot.efi移动这些数据",
+            "注意：除了苹果和VMware之外，大多数类型的固件都需要这个选项"
+        ]
+    },
+    {
+        "name": "DevirtualiseMmio",
+        "type": "bool",
+        "function": "",
+        "note": []
+    },
+    {
+        "name": "DisableSingleUser",
+        "type": "bool",
+        "function": "",
+        "note": []
+    },
+    {
+        "name": "DisableVariableWrite",
+        "type": "bool",
+        "function": "",
+        "note": []
+    },
+    {
+        "name": "DiscardHibernateMap",
+        "type": "bool",
+        "function": "",
+        "note": []
+    },
+    {
+        "name": "EnableSafeModeSlide",
+        "type": "bool",
+        "function": "",
+        "note": []
+    },
+    {
+        "name": "EnableWriteUnprotector",
+        "type": "bool",
+        "function": "",
+        "note": []
+    },
+    {
+        "name": "ForceExitBootServices",
+        "type": "bool",
+        "function": "",
+        "note": []
+    },
+    {
+        "name": "FixupAppleEfiImages",
+        "type": "bool",
+        "function": "",
+        "note": []
+    },
+    {
+        "name": "ForceBooterSignature",
+        "type": "bool",
+        "function": "",
+        "note": []
+    },
+    {
+        "name": "ProtectSecureBoot",
+        "type": "bool",
+        "function": "",
+        "note": []
+    },
+    {
+        "name": "ProtectUefiServices",
+        "type": "bool",
+        "function": "",
+        "note": []
+    },
+    {
+        "name": "ProvideCustomSlide",
+        "type": "bool",
+        "function": "",
+        "note": []
+    },
+    {
+        "name": "ProtectMemoryRegions",
+        "type": "bool",
+        "function": "",
+        "note": []
+    },
+    {
+        "name": "SetupVirtualMap",
+        "type": "bool",
+        "function": "",
+        "note": []
+    },
+    {
+        "name": "RebuildAppleMemoryMap",
+        "type": "bool",
+        "function": "",
+        "note": []
+    },
+    {
+        "name": "SignalAppleOS",
+        "type": "bool",
+        "function": "",
+        "note": []
+    },
+    {
+        "name": "SyncRuntimePermissions",
+        "type": "bool",
+        "function": "",
+        "note": []
+    }
+]

@@ -1,0 +1,175 @@
+[
+    {
+        "name": "OpenRuntime.efi",
+        "function": "用于在黑苹果系统中模拟和实现 macOS 中的 Runtime Services,提供高度可移植、高度兼容的运行时环境，以便在非苹果硬件上正常运行 macOS",
+        "scope": "适用于所有平台",
+        "essential": true,
+        "note": [
+            "OpenRuntime 主要的功能是模拟 macOS 的 Runtime Services，包括提供操作系统和应用程序所需的系统服务。这包括时间、NVRAM（非易失性随机存储器）、文件系统、输入输出、电源管理和其他相关功能。通过这种方式，OpenRuntime使 macOS 能够在非苹果硬件上运行，而无需真正的 Mac 计算机",
+            "OpenRuntime 是 OpenCore 引导加载程序的一部分，它为 OpenCore 提供了必要的运行时环境支持，以便在引导过程中正确加载 macOS"
+        ]
+    },
+    {
+        "name": "HfsPlusLegacy.efi",
+        "function": "用于支持 HFS+(10.14以下系统) 、APFS(10.15以上)文件系统的引导,但是更偏重确保HFS+格式的分区可以被引导",
+        "scope": "适用于2代及之前的传统老平台",
+        "essential": true,
+        "note": [
+            "HfsPlusLegacy 模块的主要功能是支持 HFS+ 文件系统的引导。它允许用户在不升级到更新文件系统格式（如APFS）的情况下，在黑苹果系统中引导和访问 HFS+ 格式的分区",
+            "HfsPlusLegacy 模块是为那些仍在使用 HFS+ 文件系统的老旧 macOS 系统或需要与 HFS+ 格式的分区进行数据交互的用户提供的。它确保这些用户能够无缝地进行引导和文件访问",
+            "注意不要与其他hfs驱动同时使用"
+        ]
+    },
+    {
+        "name": "HfsPlus.efi",
+        "function": "用于支持 HFS+(10.14以下系统) 、APFS(10.15以上)文件系统的引导",
+        "scope": "适用于3代及更新平台",
+        "essential": true,
+        "note": [
+            "HfsPlus 模块的主要功能是支持 HFS+ 文件系统的引导。它允许用户在不升级到更新文件系统格式（如APFS）的情况下，在黑苹果系统中引导和访问 HFS+ 格式的分区",
+            "HfsPlus 模块是为那些仍在使用 HFS+ 文件系统的老旧 macOS 系统或需要与 HFS+ 格式的分区进行数据交互的用户提供的。它确保这些用户能够无缝地进行引导和文件访问",
+            "注意不要与其他hfs驱动同时使用"
+        ]
+    },
+    {
+        "name": "VBoxHfs.efi",
+        "function": "主要用于在虚拟机中运行macOS操作系统时,以支持HFS+格式的虚拟磁盘,支持APFS文件系统",
+        "scope": "适用于3代及之前的传统老平台",
+        "essential": true,
+        "note": [
+            "VBoxHfs是VirtualBox 虚拟机软件中用于支持 HFS+ 文件系统的组件.它允许在虚拟机中加载和访问 HFS+ 格式的分区",
+            "目前已经被OpenHfsPlus取代",
+            "注意不要与其他hfs驱动同时使用"
+        ]
+    },
+    {
+        "name": "OpenHfsPlus.efi",
+        "function": "用于支持 HFS+(10.14以下系统) 、APFS(10.15以上)文件系统的引导",
+        "scope": "适用于3代及更新平台",
+        "essential": true,
+        "note": [
+            "开源的HFS+文件系统驱动程序项目,用于访问和管理HFS+格式的分区",
+            "相比HfsPlus,启动速度稍慢",
+            "注意不要与其他hfs驱动同时使用"
+        ]
+    },
+    {
+        "name": "OpenCanopy.efi",
+        "function": "提供了一个可定制的、现代化的图形引导UI界面,以替代传统的文本式引导画面",
+        "scope": "适用于所有需要图形化引导的平台",
+        "essential": false,
+        "note": [
+            "OpenCanopy 提供了一个现代化的用户界面，包括图形菜单、图标、鼠标支持和更丰富的用户交互性。这使得黑苹果系统的引导界面更容易使用，并提供更多信息",
+            "OpenCanopy 支持主题定制，用户可以选择或创建不同的主题来美化引导界面，使其适应自己的喜好和需求。这意味着你可以选择不同的背景、字体、颜色方案和图标集",
+            "OpenCanopy 支持多种语言，因此用户可以选择在自己首选的语言环境下进行引导。这包括文字内容、菜单选项和用户界面元素",
+            "OpenCanopy 支持键盘和鼠标输入，用户可以使用鼠标点击图形菜单选项或使用键盘快捷键进行选择。这提供了更多的灵活性",
+            "OpenCanopy 可以适应不同分辨率的显示器，因此它在不同硬件配置上都能提供优秀的显示效果"
+        ]
+    },
+    {
+        "name": "AudioDxe.efi",
+        "function": "用于支持计算机启动时初始化和管理音频硬件,允许操作系统在引导过程中访问和使用音频设备,包括扬声器、麦克风、声卡.例如实现开机“Duang”的开机声",
+        "scope": "适用于所有支持UEFI的平台",
+        "essential": false,
+        "note": [
+            "AudioDxe 负责初始化计算机系统中的音频硬件。这通常涉及到识别和配置音频设备、加载适当的驱动程序和设置音频参数，以确保音频设备在操作系统引导过程中可用",
+            "AudioDxe 模块支持各种类型的音频设备，包括内置扬声器、耳机插孔、麦克风、USB声卡、HDMI音频等。它提供通用的音频设备初始化和管理功能，以确保这些设备正常工作",
+            "AudioDxe 模块通常与 UEFI 固件中的声卡驱动程序一起工作，这些驱动程序负责与特定声卡硬件通信。声卡驱动程序允许操作系统识别和使用声卡设备，以便在操作系统引导后提供音频支持",
+            "AudioDxe 模块允许用户或系统管理员配置音频参数，如音量、均衡、音频效果等。这些设置可以通过 UEFI BIOS 设置工具进行调整，以满足用户的音频需求"
+        ]
+    },
+    {
+        "name": "ResetNvramEntry.efi",
+        "function": "用于重置计算机系统中的 NVRAM（非易失性随机存储器）",
+        "scope": "适用于所有平台",
+        "essential": false,
+        "note": [
+            "NVRAM 存储着计算机系统的各种参数和设置，包括启动磁盘选择、显示亮度、音频音量、日期和时间设置、安全设置、网络配置等。这些参数在计算机启动时被读取，并影响系统的行为",
+            "ResetNvramEntry 允许用户清除或还原 NVRAM 存储中的特定参数或设置。这对于解决一些系统问题、消除冲突或还原误操作的设置非常有用"
+        ]
+    },
+    {
+        "name": "CrScreenshotDxe.efi",
+        "function": "主要用于截取计算机启动过程中的屏幕截图",
+        "scope": "适用于所有平台",
+        "essential": false,
+        "note": [
+            "可以截取计算机启动时屏幕上显示的内容，包括启动画面、错误消息、引导菜单等。这有助于用户或技术支持人员了解在引导过程中发生的任何问题"
+        ]
+    },
+    {
+        "name": "NvmExpressDxe.efi",
+        "function": "用于支持 NVMe（Non-Volatile Memory Express）存储设备的引导和操作",
+        "scope": "适用于所有平台",
+        "essential": false,
+        "note": [
+            "它支持在 NVMe 存储设备上安装和引导操作系统，确保系统能够正确访问 NVMe 存储",
+            "它允许计算机操作系统在 NVMe SSD 上读取和写入数据，以获得高性能的存储体验"
+        ]
+    },
+    {
+        "name": "OpenLinuxBoot.efi",
+        "function": "主要提供Linux系统引导支持",
+        "scope": "适用于所有平台",
+        "essential": false,
+        "note": [
+            "构建在 Linux 内核之上，它使用 Linux 内核作为其核心引导组件。这使得它能够充分利用 Linux 内核的稳定性和广泛支持的硬件"
+        ]
+    },
+    {
+        "name": "OpenUsbKbDxe.efi",
+        "function": "用于支持USB键盘(USB Keyboard)在计算机的启动过程中以及操作系统加载后的运行",
+        "scope": "适用于1代及之前(比如:775,X58等)的传统老平台",
+        "essential": false,
+        "note": [
+            "允许用户在 BIOS 或 UEFI 启动过程中使用 USB 键盘。这对于选择引导设备、进入 BIOS 设置、输入密码或执行其他启动操作非常重要"
+        ]
+    },
+    {
+        "name": "UsbMouseDxe.efi",
+        "function": "用于支持 USB 鼠标(USB Mouse)在计算机的启动过程中以及操作系统加载后的运行",
+        "scope": "适用于1代及之前(比如:775,X58等)的传统老平台",
+        "essential": false,
+        "note": [
+            "允许用户在 BIOS 或 UEFI 启动过程中使用 USB 鼠标。这对于选择引导设备、进入 BIOS 设置、执行鼠标操作或在启动菜单中导航非常重要"
+        ]
+    },
+    {
+        "name": "Ps2KeyboardDxe.efi",
+        "function": "用于支持 PS/2 键盘(PS/2 Keyboard)在计算机的启动过程中以及操作系统加载后的运行",
+        "scope": "适用于使用PS2键盘的平台",
+        "essential": false,
+        "note": [
+            "允许用户在 BIOS 或 UEFI 启动过程中使用 PS/2 键盘。这对于选择引导设备、进入 BIOS 设置、执行键盘输入或在启动菜单中导航非常重要"
+        ]
+    },
+    {
+        "name": "Ps2MouseDxe.efi",
+        "function": "用于支持 PS/2 Mouse(PS/2 Mouse)在计算机的启动过程中以及操作系统加载后的运行",
+        "scope": "适用于使用PS/2鼠标的平台",
+        "essential": false,
+        "note": [
+            "允许用户在 BIOS 或 UEFI 启动过程中使用 PS/2 鼠标。这对于选择引导设备、进入 BIOS 设置、执行鼠标输入或在启动菜单中导航非常重要"
+        ]
+    },
+    {
+        "name": "XhciDxe.efi",
+        "function": "用于支持 USB 3.0 和 USB 3.1 控制器，也称为 eXtensible Host Controller Interface (xHCI) 控制器",
+        "scope": "适用于所有平台",
+        "essential": false,
+        "note": [
+            "允许计算机系统在 BIOS 或 UEFI 启动时与 USB 3.0/3.1 控制器进行通信，以便操作系统和应用程序可以与 USB 3.0/3.1 设备进行数据传输和通信"
+        ]
+    },
+    {
+        "name": "ToggleSipEntry.efi",
+        "function": "用于启用或禁用System Integrity Protection(SIP,系统完整性保护)以进行系统维护或开发目的",
+        "scope": "适用于所有平台",
+        "essential": false,
+        "note": [
+            "ToggleSipEntry 是一个工具或命令行实用程序，用于启用或禁用 SIP",
+            "当 SIP 处于启用状态时，操作系统将受到更强大的保护，但也会限制一些高级用户和开发者对系统文件的访问",
+            "禁用 SIP 可能允许用户或开发者修改系统文件，但也增加了潜在的风险，因为系统不再受到同样程度的保护"
+        ]
+    }
+]

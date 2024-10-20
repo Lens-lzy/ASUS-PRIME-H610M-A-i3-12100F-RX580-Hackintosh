@@ -1,0 +1,52 @@
+[
+    {
+        "name": "FadtEnableReset",
+        "type": "bool",
+        "function": "在FADT表中提供复位寄存器和标志，以实现重启和关机",
+        "note": [
+            "主要是在传统硬件和一些较新的笔记本上需要。也可以修复电源按钮的快捷方式。除非需要，否则不建议使用。如果关机变重启可以尝试使用"
+        ]
+    },
+    {
+        "name": "NormalizeHeaders",
+        "type": "bool",
+        "function": "清理 ACPI 头部字段,修复10.13 系统上某些主板ACPI实施缺陷导致的启动崩溃问题",
+        "note": [
+            "一般在 10.13 系统上的某些主板会出现这种情况,这个问题在macOS Mojave (10.14)中得到了修复"
+        ]
+    },
+    {
+        "name": "ResetLogoStatus",
+        "type": "bool",
+        "function": "这可以解决提供BGRT表的固件，但之后无法处理屏幕更新的问题",
+        "note": [
+            "将BGRT表显示状态字段重置为false"
+        ]
+    },
+    {
+        "name": "ResetHwSig",
+        "type": "bool",
+        "function": "这可以解决固件在重启过程中无法保持硬件签名而导致休眠唤醒的问题",
+        "note": [
+            "将FACS表HardwareSignature值重置为0"
+        ]
+    },
+    {
+        "name": "RebaseRegions",
+        "type": "bool",
+        "function": "尝试启发式地重新定位ACPI内存区域",
+        "note": [
+            "ACPI表通常由底层固件实现动态生成。在与位置无关的代码中，ACPI表可能包含用于设备配置的MMIO区域的物理地址，通常是按区域（如OperationRegion）分组的。改变固件设置或硬件配置、升级或打补丁不可避免地会导致动态生成的ACPI代码发生变化，这有时会导致上述OperationRegion结构中的地址发生变化",
+            "由于这个原因，应用修改ACPI表是非常危险的。最好的方法是尽可能少地对ACPI表进行修改，避免替换任何表，特别是DSDT表。当无法避免时，确保任何自定义的DSDT表都是基于最新的DSDT表，或者尝试删除受影响区域的读写",
+            "当没有其他帮助时，可以尝试这个选项，通过尝试修复ACPI地址来避免在macOS启动的PCI配置开始阶段的停顿。然而，这并不是灵丹妙药，只对最典型的情况有效。除非绝对需要，否则不要使用，因为它在某些平台上可能会产生相反的效果，导致启动失败"
+        ]
+    },
+    {
+        "name": "SyncTableIds",
+        "type": "bool",
+        "function": "将表的标识符与SLIC表同步,可以解决打了补丁的表与SLIC表不兼容，在老的Windows操作系统中造成许可问题",
+        "note": [
+            ""
+        ]
+    }
+]
